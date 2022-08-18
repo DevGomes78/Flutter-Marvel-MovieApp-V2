@@ -155,16 +155,13 @@ class _DetailsPageState extends State<DetailsPage> {
                         style: AppTextStyle.font22Bold,
                       ),
                     ),
-
                     Consumer<Favorites>(
-                      builder: (context,value,child)=>
-                      IconButton(
+                      builder: (context, value, child) => IconButton(
                         onPressed: () {
-                         value.favoritosOnly(widget.data!);
+                          value.favoritosOnly(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text(
-                                      'Assistir mais tarde!')));
+                                  content: Text('Assistir mais tarde!')));
                         },
                         icon: const Icon(
                           Icons.add,

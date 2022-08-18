@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MarvelModels extends ChangeNotifier {
   List<Data>? data;
   int? total;
+
   MarvelModels({
     this.data,
     this.total,
@@ -19,7 +20,7 @@ class MarvelModels extends ChangeNotifier {
   }
 }
 
-class Data extends ChangeNotifier {
+class Data {
   int? id;
   String? title;
   String? releaseDate;
@@ -38,20 +39,20 @@ class Data extends ChangeNotifier {
 
   Data(
       {this.id,
-        this.title,
-        this.releaseDate,
-        this.boxOffice,
-        this.duration,
-        this.overview,
-        this.coverUrl,
-        this.trailerUrl,
-        this.directedBy,
-        this.phase,
-        this.saga,
-        this.chronology,
-        this.postCreditScenes,
-        this.imdbId,
-        this.isFavorite = false});
+      this.title,
+      this.releaseDate,
+      this.boxOffice,
+      this.duration,
+      this.overview,
+      this.coverUrl,
+      this.trailerUrl,
+      this.directedBy,
+      this.phase,
+      this.saga,
+      this.chronology,
+      this.postCreditScenes,
+      this.imdbId,
+      this.isFavorite = false});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -68,5 +69,23 @@ class Data extends ChangeNotifier {
     chronology = json['chronology'];
     postCreditScenes = json['post_credit_scenes'];
     imdbId = json['imdb_id'];
+  }
+}
+
+class NotasMovie extends ChangeNotifier{
+  String? nota;
+  List<String> notas = [
+    '9.5',
+    '8.4',
+    '7.5',
+    '5.5',
+    '8.0',
+    '7.5',
+  ];
+
+  notaMovie(nota){
+    for (var nota in notas){
+      notifyListeners();
+    }
   }
 }

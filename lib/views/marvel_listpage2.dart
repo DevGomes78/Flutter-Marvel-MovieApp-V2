@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:marvel/components/drawer.dart';
 import 'package:provider/provider.dart';
 import '../components/star_list.dart';
 import '../components/text_style.dart';
@@ -8,7 +9,7 @@ import '../constants/image_constants.dart';
 import '../constants/string_constants.dart';
 import '../controller/marvel_controller.dart';
 import '../controller/search_movie.dart';
-import '../utils/routes.dart';
+import '../data/models/marvel_models.dart';
 import 'details_page.dart';
 
 class MarvelListPage2 extends StatefulWidget {
@@ -19,6 +20,7 @@ class MarvelListPage2 extends StatefulWidget {
 }
 
 class _MarvelListPage2State extends State<MarvelListPage2> {
+  NotasMovie? notasMovie;
   late final MarvelController controller;
   var lista;
 
@@ -35,7 +37,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     return LayoutBuilder(builder: (context, constrains) {
       return Scaffold(
         appBar: buildAppBar(context),
-        drawer: buildDrawer(context),
+        drawer: const drawer(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: SingleChildScrollView(
@@ -65,21 +67,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     });
   }
 
-  Drawer buildDrawer(BuildContext context) {
-    return Drawer(
-        child: ListView(
-      children: <Widget>[
-        ListTile(
-            leading: const Icon(Icons.star),
-            title: const Text(StringConstants.favorites),
-            subtitle: const Text(StringConstants.Myfavorites),
-            trailing: const Icon(Icons.arrow_forward),
-            onTap: () {
-              Navigator.pushNamed(context, Routes.favorites);
-            })
-      ],
-    ));
-  }
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
@@ -169,7 +156,8 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Text('8.4', style: AppTextStyle.font15),
+
+                        Text('8.5', style: AppTextStyle.font15),
                   ],
                 ),
               ],
@@ -208,7 +196,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                       borderRadius: BorderRadius.circular(15),
                       child: Image.network(
                         provider.lista[index].coverUrl.toString(),
-                        width: 400,
+                        width: 420,
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -227,3 +215,4 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 }
+
