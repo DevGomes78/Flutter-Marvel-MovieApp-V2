@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style.dart';
+import 'package:marvel/controller/watch_later.dart';
 import 'package:provider/provider.dart';
-import '../controller/favourites_controller.dart';
 import '../utils/routes.dart';
 
-class FavoritesPage extends StatefulWidget {
-  const FavoritesPage({Key? key}) : super(key: key);
+class WatchLaterPage extends StatefulWidget {
+  const WatchLaterPage({Key? key}) : super(key: key);
 
   @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
+  State<WatchLaterPage> createState() => _WatchLaterPageState();
 }
 
-class _FavoritesPageState extends State<FavoritesPage> {
+class _WatchLaterPageState extends State<WatchLaterPage> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Favorites>(context);
+    final provider = Provider.of<Watchlater>(context);
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +30,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     bottomRight: Radius.circular(50),
                   ),
                   image: DecorationImage(
-                    image: AssetImage('images/vingadores2.jpg'),
+                    image: AssetImage('images/studiosmarvel.jpg'),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -81,7 +81,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              'Favoritos:',
+              'Assistir mais tarde',
               style: AppTextStyle.font22,
             ),
           ),
@@ -94,9 +94,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     childAspectRatio: 1.1,
                     mainAxisSpacing: 2,
                   ),
-                  itemCount: provider.listFavorites.length,
+                  itemCount: provider.listLater.length,
                   itemBuilder: (context, index) {
-                    var lista = provider.listFavorites[index];
+                    var lista = provider.listLater[index];
                     return ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: Card(

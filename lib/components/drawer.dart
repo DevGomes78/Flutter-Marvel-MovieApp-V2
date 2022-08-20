@@ -33,7 +33,7 @@ class drawer extends StatelessWidget {
             leading: Icon(Icons.add),
             title: const Text("Assistir mais tarde"),
             onTap: () {
-              Navigator.pushNamed(context,Routes.favorites);
+              Navigator.pushNamed(context,Routes.watchLater);
               //Navegar para outra página
 
             },
@@ -42,7 +42,7 @@ class drawer extends StatelessWidget {
             leading: Icon(Icons.favorite),
             title: const Text("Favoritos"),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, Routes.favorites);
               //Navegar para outra página
             },
           ),

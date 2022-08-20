@@ -3,4 +3,5 @@ class Routes{
   static const  detailsPage = ' DetailsPage';
   static const marvelListPage2 = 'MarvelListPage2';
   static const favorites = 'FavoritesPage ';
+  static const watchLater = 'WatchLaterPage ';
 }

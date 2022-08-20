@@ -1,11 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:marvel/controller/watch_later.dart';
 import 'package:marvel/data/models/marvel_models.dart';
 import 'package:marvel/utils/routes.dart';
 import 'package:marvel/views/details_page.dart';
 import 'package:marvel/views/favorites_page.dart';
 import 'package:marvel/views/home_page.dart';
 import 'package:marvel/views/marvel_listpage2.dart';
+import 'package:marvel/views/watch_later.dart';
 import 'package:provider/provider.dart';
 import 'controller/favourites_controller.dart';
 import 'controller/marvel_controller.dart';
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MarvelController()),
         ChangeNotifierProvider(create: (context) => Favorites()),
         ChangeNotifierProvider(create: (context) => NotasMovie()),
+        ChangeNotifierProvider(create: (context) => Watchlater()),
       ],
       child: MaterialApp(
         useInheritedMediaQuery: true,
@@ -46,6 +49,7 @@ class MyApp extends StatelessWidget {
           Routes.detailsPage: (context) => DetailsPage(),
           Routes.marvelListPage2: (context) => MarvelListPage2(),
           Routes.favorites: (context) => FavoritesPage(),
+          Routes.watchLater: (context) => WatchLaterPage(),
         },
       ),
     );

@@ -38,29 +38,27 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
       return Scaffold(
         appBar: buildAppBar(context),
         drawer: const drawer(),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                carrouselSlider(provider),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(StringConstants.assistaAgora,
-                      style: AppTextStyle.font22),
-                ),
-                const SizedBox(height: 10),
-                listMovie(provider),
-                Text(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              carrouselSlider(provider),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(StringConstants.assistaAgora,
+                    style: AppTextStyle.font22),
+              ),
+              listMovie(provider),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
                   StringConstants.atoresPrincipais,
                   style: AppTextStyle.font18,
                 ),
-                const SizedBox(height: 10),
-                const StarList(),
-              ],
-            ),
+              ),
+              const StarList(),
+            ],
           ),
         ),
       );
@@ -90,79 +88,82 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  Container listMovie(MarvelController provider) {
-    return Container(
-      height:  MediaQuery.of(context).size.height /3.2,
-      width: double.infinity,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: provider.lista.length,
-          itemBuilder: (context, index) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  height: MediaQuery.of(context).size.height/4,
-                  width: MediaQuery.of(context).size.width /2 - 20,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailsPage(
-                                    data: provider.lista[index],
-                                  )));
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image(
-                        image: CachedNetworkImageProvider(
-                          provider.lista[index].coverUrl.toString(),
-                          maxHeight: 260,
-                          maxWidth: 200,
+  Padding listMovie(MarvelController provider) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+      child: Container(
+        height:  MediaQuery.of(context).size.height /3.2,
+        width: double.infinity,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: provider.lista.length,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    height: MediaQuery.of(context).size.height/4,
+                    width: MediaQuery.of(context).size.width /2 - 20,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                      data: provider.lista[index],
+                                    )));
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image(
+                          image: CachedNetworkImageProvider(
+                            provider.lista[index].coverUrl.toString(),
+                            maxHeight: 260,
+                            maxWidth: 200,
+                          ),
+                          loadingBuilder: (context, child, progress) {
+                            if (progress == null) {
+                              return child;
+                            }
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
+                          fit: BoxFit.fill,
                         ),
-                        loadingBuilder: (context, child, progress) {
-                          if (progress == null) {
-                            return child;
-                          }
-                          return const Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.grey,
-                            ),
-                          );
-                        },
-                        fit: BoxFit.fill,
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    provider.lista[index].title.toString(),
-                    style: AppTextStyle.font12Bold,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 25,
-                        width: 50,
-                        child: Image.asset(ImageConstants.imageAsset),
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      provider.lista[index].title.toString(),
+                      style: AppTextStyle.font12Bold,
                     ),
-                    const SizedBox(width: 10),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 25,
+                          width: 50,
+                          child: Image.asset(ImageConstants.imageAsset),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
 
-                        Text('8.5', style: AppTextStyle.font15),
-                  ],
-                ),
-              ],
-            );
-          }),
+                          Text('8.5', style: AppTextStyle.font15),
+                    ],
+                  ),
+                ],
+              );
+            }),
+      ),
     );
   }
 

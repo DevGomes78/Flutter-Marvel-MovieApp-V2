@@ -5,6 +5,7 @@ import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
 import '../constants/error_constants.dart';
 import '../constants/image_constants.dart';
+import '../controller/watch_later.dart';
 import '../data/models/marvel_models.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
@@ -43,7 +44,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   height: MediaQuery.of(context).size.height / 2,
                   width: double.infinity,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40),
                     ),
@@ -76,6 +77,37 @@ class _DetailsPageState extends State<DetailsPage> {
                       Icons.play_circle_outline,
                       color: Colors.yellow,
                       size: 65,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 20,
+                  top: 20,
+                  child: Consumer<Favorites>(
+                    builder: (context, provider, child) => IconButton(
+                      onPressed: () {
+                        provider.toogleFavorite();
+                        if (provider.isFavorite) {
+                          provider.favoritosOnly(widget.data!);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                      'Adicionado aos Favoritos!')));
+                        } else {
+                          provider.removeFavorites(widget.data!);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                      'Removido dos Favoritos!')));
+                        }
+                      },
+                      icon: Icon(
+                        provider.isFavorite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        size: 30,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -146,19 +178,14 @@ class _DetailsPageState extends State<DetailsPage> {
                     color: Colors.black54),
                 child: Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 60,
-                      ),
-                      child: Text(
-                        'Assistir mais tarde',
-                        style: AppTextStyle.font22Bold,
-                      ),
+                    Text(
+                      'Assistir mais tarde',
+                      style: AppTextStyle.font22Bold,
                     ),
-                    Consumer<Favorites>(
+                    Consumer<Watchlater>(
                       builder: (context, value, child) => IconButton(
                         onPressed: () {
-                          value.favoritosOnly(widget.data!);
+                          value.listLaterOnly(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text('Assistir mais tarde!')));
