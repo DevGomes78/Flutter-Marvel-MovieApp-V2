@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style.dart';
 import 'package:provider/provider.dart';
+import '../constants/image_constants.dart';
 import '../controller/favourites_controller.dart';
 import '../utils/routes.dart';
 
@@ -81,34 +82,56 @@ class _FavoritesPageState extends State<FavoritesPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              'Favoritos:',
+              'Favoritos',
               style: AppTextStyle.font22,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1.1,
-                    mainAxisSpacing: 2,
-                  ),
-                  itemCount: provider.listFavorites.length,
-                  itemBuilder: (context, index) {
-                    var lista = provider.listFavorites[index];
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Card(
-                        elevation: 5,
-                        child: Image.network(
-                          lista.coverUrl.toString(),
-                          fit: BoxFit.fill,
+          Container(
+            height: MediaQuery.of(context).size.height / 2 -10,
+            width:double.infinity,
+            child: ListView.builder(
+                scrollDirection:  Axis.horizontal,
+                itemCount: provider.listFavorites.length,
+                itemBuilder: (context, index) {
+                  var lista = provider.listFavorites[index];
+                  return Column(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height / 2.5 -10,
+                        width: MediaQuery.of(context).size.width /2 ,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Card(
+                            elevation: 5,
+                            child: Image.network(
+                              lista.coverUrl.toString(),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
                       ),
-                    );
-                  }),
-            ),
+                      const SizedBox(height: 5),
+                      Text(lista.title.toString()),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 25,
+                              width: 50,
+                              child: Image.asset(ImageConstants.imageAsset),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+
+                          Text('8.5', style: AppTextStyle.font15),
+                        ],
+                      ),
+                    ],
+                  );
+
+                }),
           ),
         ],
       ),

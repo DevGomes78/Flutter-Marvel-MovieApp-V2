@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style.dart';
 import 'package:marvel/controller/watch_later.dart';
 import 'package:provider/provider.dart';
+import '../constants/image_constants.dart';
 import '../utils/routes.dart';
 
-class WatchLaterPage extends StatefulWidget {
-  const WatchLaterPage({Key? key}) : super(key: key);
+class MylistPage extends StatefulWidget {
+  const MylistPage({Key? key}) : super(key: key);
 
   @override
-  State<WatchLaterPage> createState() => _WatchLaterPageState();
+  State<MylistPage> createState() => _MylistPageState();
 }
 
-class _WatchLaterPageState extends State<WatchLaterPage> {
+class _MylistPageState extends State<MylistPage> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Watchlater>(context);
@@ -22,7 +23,7 @@ class _WatchLaterPageState extends State<WatchLaterPage> {
           Stack(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height / 2.4,
+                height: MediaQuery.of(context).size.height / 2.3,
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -35,7 +36,7 @@ class _WatchLaterPageState extends State<WatchLaterPage> {
                   ),
                 ),
                 child: Container(
-                  height: MediaQuery.of(context).size.height / 3,
+                  height: MediaQuery.of(context).size.height / 2.5,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
@@ -77,7 +78,7 @@ class _WatchLaterPageState extends State<WatchLaterPage> {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
@@ -85,30 +86,53 @@ class _WatchLaterPageState extends State<WatchLaterPage> {
               style: AppTextStyle.font22,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1.1,
-                    mainAxisSpacing: 2,
-                  ),
-                  itemCount: provider.listLater.length,
-                  itemBuilder: (context, index) {
-                    var lista = provider.listLater[index];
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Card(
-                        elevation: 5,
-                        child: Image.network(
-                          lista.coverUrl.toString(),
-                          fit: BoxFit.fill,
+          const SizedBox(height: 10),
+          Container(
+            height: MediaQuery.of(context).size.height / 2 -10,
+            width:double.infinity,
+            child: ListView.builder(
+              scrollDirection:  Axis.horizontal,
+                itemCount: provider.listLater.length,
+                itemBuilder: (context, index) {
+                  var lista = provider.listLater[index];
+                  return Column(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height / 2.5 -10,
+                        width: MediaQuery.of(context).size.width /2 ,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Card(
+                            elevation: 5,
+                            child: Image.network(
+                              lista.coverUrl.toString(),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
                       ),
-                    );
-                  }),
-            ),
+                      const SizedBox(height: 5),
+                      Text(lista.title.toString()),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 25,
+                              width: 50,
+                              child: Image.asset(ImageConstants.imageAsset),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+
+                          Text('8.5', style: AppTextStyle.font15),
+                        ],
+                      ),
+                    ],
+                  );
+
+                }),
           ),
         ],
       ),

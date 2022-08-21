@@ -43,9 +43,8 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               carrouselSlider(provider),
-              const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
                 child: Text(StringConstants.assistaAgora,
                     style: AppTextStyle.font22),
               ),
@@ -90,7 +89,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   Padding listMovie(MarvelController provider) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 5),
       child: Container(
         height:  MediaQuery.of(context).size.height /3.2,
         width: double.infinity,
@@ -102,9 +101,9 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    margin: const EdgeInsets.symmetric(horizontal: 2),
                     height: MediaQuery.of(context).size.height/4,
-                    width: MediaQuery.of(context).size.width /2 - 20,
+                    width: MediaQuery.of(context).size.width /2 - 4,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
@@ -169,7 +168,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   Container carrouselSlider(MarvelController provider) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.symmetric(horizontal: 2,vertical: 10),
       child: CarouselSlider.builder(
         itemCount: provider.lista.length,
         options: CarouselOptions(

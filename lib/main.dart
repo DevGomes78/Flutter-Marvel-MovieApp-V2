@@ -7,7 +7,7 @@ import 'package:marvel/views/details_page.dart';
 import 'package:marvel/views/favorites_page.dart';
 import 'package:marvel/views/home_page.dart';
 import 'package:marvel/views/marvel_listpage2.dart';
-import 'package:marvel/views/watch_later.dart';
+import 'package:marvel/views/mylist_page.dart';
 import 'package:provider/provider.dart';
 import 'controller/favourites_controller.dart';
 import 'controller/marvel_controller.dart';
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
           Routes.detailsPage: (context) => DetailsPage(),
           Routes.marvelListPage2: (context) => MarvelListPage2(),
           Routes.favorites: (context) => FavoritesPage(),
-          Routes.watchLater: (context) => WatchLaterPage(),
+          Routes.watchLater: (context) => MylistPage(),
         },
       ),
     );
