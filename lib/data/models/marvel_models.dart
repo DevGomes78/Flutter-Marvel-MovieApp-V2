@@ -20,7 +20,9 @@ class MarvelModels extends ChangeNotifier {
   }
 }
 
-class Data {
+class Data extends ChangeNotifier {
+  List<Data> listFavorites = [];
+  late bool isFavorite;
   int? id;
   String? title;
   String? releaseDate;
@@ -35,7 +37,6 @@ class Data {
   int? chronology;
   int? postCreditScenes;
   String? imdbId;
-  late bool isFavorite;
 
   Data(
       {this.id,
@@ -70,22 +71,23 @@ class Data {
     postCreditScenes = json['post_credit_scenes'];
     imdbId = json['imdb_id'];
   }
-}
-
-class NotasMovie extends ChangeNotifier{
-  String? nota;
-  List<String> notas = [
-    '9.5',
-    '8.4',
-    '7.5',
-    '5.5',
-    '8.0',
-    '7.5',
-  ];
-
-  notaMovie(nota){
-    for (var nota in notas){
+  void favoritosOnly(Data data) {
+    if (listFavorites.contains(data)) {
+    } else {
+      listFavorites.add(data);
       notifyListeners();
     }
   }
+
+  void removeFavorites(Data data) {
+    listFavorites.remove(data);
+    notifyListeners();
+  }
+
+  void toogleFavorite() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
 }
+
+

@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MarvelController()),
         ChangeNotifierProvider(create: (context) => Favorites()),
-        ChangeNotifierProvider(create: (context) => NotasMovie()),
         ChangeNotifierProvider(create: (context) => Watchlater()),
+        ChangeNotifierProvider(create: (context) => Data()),
       ],
       child: MaterialApp(
         useInheritedMediaQuery: true,

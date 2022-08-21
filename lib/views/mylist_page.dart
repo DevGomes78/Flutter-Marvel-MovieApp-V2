@@ -99,10 +99,11 @@ class _MylistPageState extends State<MylistPage> {
                     children: [
                       Container(
                         height: MediaQuery.of(context).size.height / 2.5 -10,
-                        width: MediaQuery.of(context).size.width /2 ,
+                        width: MediaQuery.of(context).size.width /2,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Card(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
                             elevation: 5,
                             child: Image.network(
                               lista.coverUrl.toString(),

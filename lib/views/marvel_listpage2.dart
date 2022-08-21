@@ -20,7 +20,7 @@ class MarvelListPage2 extends StatefulWidget {
 }
 
 class _MarvelListPage2State extends State<MarvelListPage2> {
-  NotasMovie? notasMovie;
+
   late final MarvelController controller;
   var lista;
 
@@ -42,6 +42,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 10),
               carrouselSlider(provider),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
@@ -89,7 +90,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   Padding listMovie(MarvelController provider) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
       child: Container(
         height:  MediaQuery.of(context).size.height /3.2,
         width: double.infinity,
@@ -103,7 +104,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 2),
                     height: MediaQuery.of(context).size.height/4,
-                    width: MediaQuery.of(context).size.width /2 - 4,
+                    width: MediaQuery.of(context).size.width /2 - 9,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(

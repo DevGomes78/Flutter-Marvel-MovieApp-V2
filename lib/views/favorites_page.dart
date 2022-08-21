@@ -3,6 +3,7 @@ import 'package:marvel/components/text_style.dart';
 import 'package:provider/provider.dart';
 import '../constants/image_constants.dart';
 import '../controller/favourites_controller.dart';
+import '../data/models/marvel_models.dart';
 import '../utils/routes.dart';
 
 class FavoritesPage extends StatefulWidget {
@@ -86,52 +87,57 @@ class _FavoritesPageState extends State<FavoritesPage> {
               style: AppTextStyle.font22,
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height / 2 -10,
-            width:double.infinity,
-            child: ListView.builder(
-                scrollDirection:  Axis.horizontal,
-                itemCount: provider.listFavorites.length,
-                itemBuilder: (context, index) {
-                  var lista = provider.listFavorites[index];
-                  return Column(
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height / 2.5 -10,
-                        width: MediaQuery.of(context).size.width /2 ,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: Card(
-                            elevation: 5,
-                            child: Image.network(
-                              lista.coverUrl.toString(),
-                              fit: BoxFit.fill,
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Container(
+              height: MediaQuery.of(context).size.height / 2 -10,
+              width:double.infinity,
+              child: ListView.builder(
+                  scrollDirection:  Axis.horizontal,
+                  itemCount: provider.listFavorites.length,
+                  itemBuilder: (context, index) {
+                    var lista = provider.listFavorites[index];
+                    return Column(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height / 2.5 -10,
+                          width: MediaQuery.of(context).size.width /2 ,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(30),
+                            child: Card(
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
+                              elevation: 5,
+                              child: Image.network(
+                                lista.coverUrl.toString(),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(lista.title.toString()),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 25,
-                              width: 50,
-                              child: Image.asset(ImageConstants.imageAsset),
+                        const SizedBox(height: 5),
+                        Text(lista.title.toString()),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 25,
+                                width: 50,
+                                child: Image.asset(ImageConstants.imageAsset),
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 10),
+                            const SizedBox(width: 10),
 
-                          Text('8.5', style: AppTextStyle.font15),
-                        ],
-                      ),
-                    ],
-                  );
+                            Text('8.5', style: AppTextStyle.font15),
+                          ],
+                        ),
+                      ],
+                    );
 
-                }),
+                  }),
+            ),
           ),
         ],
       ),
