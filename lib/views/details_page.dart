@@ -5,7 +5,7 @@ import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
 import '../constants/error_constants.dart';
 import '../constants/image_constants.dart';
-import '../controller/mylist.dart';
+import '../controller/watch_later.dart';
 import '../data/models/marvel_models.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
@@ -87,20 +87,22 @@ class _DetailsPageState extends State<DetailsPage> {
                     builder: (context, provider, child) => IconButton(
                       onPressed: () {
                         provider.toogleFavorite();
-                        if (!provider.listFavorites.contains(widget.data)) {
-                          provider.listFavorites.add(widget.data!);
+                        if (provider.isFavorite) {
+                          provider.favoritosOnly(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text('Adicionado aos Favoritos!')));
+                                  content: Text(
+                                      'Adicionado aos Favoritos!')));
                         } else {
-                          provider.listFavorites.remove(widget.data);
+                          provider.removeFavorites(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text('removido  dos Favoritos!')));
+                                  content: Text(
+                                      'Removido dos Favoritos!')));
                         }
                       },
                       icon: Icon(
-                        provider.listFavorites.contains(widget.data)
+                        provider.isFavorite
                             ? Icons.favorite
                             : Icons.favorite_border,
                         size: 30,
@@ -177,8 +179,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 child: Row(
                   children: [
                     Text(
-                      'Minha lista',
-                      style: AppTextStyle.font22Bold,
+                      'Assistir mais tarde',
+                      style: AppTextStyle.font22,
                     ),
                     Consumer<MyList>(
                       builder: (context, value, child) => IconButton(
@@ -186,7 +188,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           value.listLaterOnly(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text('Adicionado a minha lista!')));
+                                  content: Text('Assistir mais tarde!')));
                         },
                         icon: const Icon(
                           Icons.add,

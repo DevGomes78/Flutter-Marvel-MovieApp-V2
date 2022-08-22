@@ -20,9 +20,7 @@ class MarvelModels extends ChangeNotifier {
   }
 }
 
-class Data extends ChangeNotifier {
-  List<Data> listFavorites = [];
-  late bool isFavorite;
+class Data extends ChangeNotifier{
   int? id;
   String? title;
   String? releaseDate;
@@ -37,6 +35,7 @@ class Data extends ChangeNotifier {
   int? chronology;
   int? postCreditScenes;
   String? imdbId;
+  late bool isFavorite;
 
   Data(
       {this.id,
@@ -72,5 +71,4 @@ class Data extends ChangeNotifier {
     imdbId = json['imdb_id'];
   }
 }
-
 
