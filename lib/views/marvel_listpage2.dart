@@ -102,7 +102,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
                     height: MediaQuery.of(context).size.height/4.5,
                     width: MediaQuery.of(context).size.width /2 - 9,
                     child: InkWell(
