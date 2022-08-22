@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:marvel/components/text_style.dart';
 import '../constants/image_constants.dart';
 class StarList extends StatelessWidget {
   const StarList({
@@ -20,15 +20,15 @@ class StarList extends StatelessWidget {
               children:  [
                 const CircleAvatar(
                   backgroundImage: AssetImage(ImageConstants.imageAssetcrisEvans),
-                  radius: 35,
+                  radius: 30,
                 ),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
                   width: 50,
-                  child: const Text(
-                    ' Chris Evans',
+                  child:  Text(
+                    ' Chris Evans',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -39,15 +39,15 @@ class StarList extends StatelessWidget {
               children:  [
                 const CircleAvatar(
                   backgroundImage: AssetImage(ImageConstants.imageAssetscarlet),
-                  radius: 35,
+                  radius: 30,
                 ),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
                   width: 80,
-                  child: const Text(
-                    '   Scarlett Johansson',
+                  child:  Text(
+                    '   Scarlett Johansson',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -58,15 +58,15 @@ class StarList extends StatelessWidget {
               children:  [
                 const CircleAvatar(
                   backgroundImage: AssetImage('images/Cris hemsworthr.jpg'),
-                  radius: 35,
+                  radius: 30,
                 ),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
                   width: 80,
-                  child: const Text(
-                    '  Chris Hemsworth ',
+                  child: Text(
+                    '  Chris Hemsworth ',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -77,15 +77,15 @@ class StarList extends StatelessWidget {
               children:  [
                 const CircleAvatar(
                   backgroundImage: AssetImage('images/robert downey jr.jpg'),
-                  radius: 35,
+                  radius: 30,
                 ),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
                   width: 70,
-                  child: const Text(
-                    '  Robert Downey Jr',
+                  child:  Text(
+                    '  Robert Downey Jr',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -96,15 +96,15 @@ class StarList extends StatelessWidget {
               children:  [
                 const CircleAvatar(
                   backgroundImage: AssetImage('images/mark huffalo.jpg'),
-                  radius: 35,
+                  radius: 30,
                 ),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
                   width: 50,
-                  child: const Text(
-                    'Mark Ruffalo',
+                  child:  Text(
+                    'Mark Ruffalo',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -115,15 +115,15 @@ class StarList extends StatelessWidget {
               children:  [
                 const CircleAvatar(
                   backgroundImage: AssetImage('images/Samuel ljackson.jpg'),
-                  radius: 35,
+                  radius: 30,
                 ),
                 const SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
                   width: 70,
-                  child: const Text(
-                    'Samuel Ljackson',
+                  child: Text(
+                    'Samuel Ljackson',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),

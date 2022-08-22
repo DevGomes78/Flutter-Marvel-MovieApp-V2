@@ -23,10 +23,9 @@ class AppTextStyle{
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle font14Bold = const TextStyle(
+  static TextStyle font14 = const TextStyle(
     fontSize: 14,
     color: Colors.white,
-    fontWeight: FontWeight.bold,
   );
   static TextStyle font12Bold = const TextStyle(
     fontSize: 11,

@@ -47,7 +47,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
                 child: Text(StringConstants.assistaAgora,
-                    style: AppTextStyle.font22),
+                    style: AppTextStyle.font18),
               ),
               listMovie(provider),
               Padding(
@@ -92,7 +92,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
       child: Container(
-        height:  MediaQuery.of(context).size.height /3.2,
+        height:  MediaQuery.of(context).size.height /3.5,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -103,7 +103,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 2),
-                    height: MediaQuery.of(context).size.height/4,
+                    height: MediaQuery.of(context).size.height/4.5,
                     width: MediaQuery.of(context).size.width /2 - 9,
                     child: InkWell(
                       onTap: () {

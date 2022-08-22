@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/data/models/marvel_models.dart';
 
-class Watchlater extends ChangeNotifier {
+class MyList extends ChangeNotifier {
   List<Data> listLater = [];
 
   void listLaterOnly(Data data) {

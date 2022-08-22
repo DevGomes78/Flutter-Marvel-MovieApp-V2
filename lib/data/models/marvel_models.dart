@@ -71,23 +71,6 @@ class Data extends ChangeNotifier {
     postCreditScenes = json['post_credit_scenes'];
     imdbId = json['imdb_id'];
   }
-  void favoritosOnly(Data data) {
-    if (listFavorites.contains(data)) {
-    } else {
-      listFavorites.add(data);
-      notifyListeners();
-    }
-  }
-
-  void removeFavorites(Data data) {
-    listFavorites.remove(data);
-    notifyListeners();
-  }
-
-  void toogleFavorite() {
-    isFavorite = !isFavorite;
-    notifyListeners();
-  }
 }
 
 
