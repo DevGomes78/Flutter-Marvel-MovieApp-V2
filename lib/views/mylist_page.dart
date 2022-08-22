@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style.dart';
+import 'package:marvel/controller/watch_later.dart';
 import 'package:provider/provider.dart';
 import '../constants/image_constants.dart';
-import '../controller/favourites_controller.dart';
 import '../utils/routes.dart';
 
-class FavoritesPage extends StatefulWidget {
-  const FavoritesPage({Key? key}) : super(key: key);
+class MylistPage extends StatefulWidget {
+  const MylistPage({Key? key}) : super(key: key);
 
   @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
+  State<MylistPage> createState() => _MylistPageState();
 }
 
-class _FavoritesPageState extends State<FavoritesPage> {
+class _MylistPageState extends State<MylistPage> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Favorites>(context);
+    final provider = Provider.of<MyList>(context);
     return Scaffold(
       body: LayoutBuilder(
         builder: (context,constraints)=>
@@ -26,7 +26,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               Stack(
                 children: [
                   Container(
-                    height: constraints.maxHeight / 2.4,
+                    height: constraints.maxHeight / 2.3,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -34,12 +34,12 @@ class _FavoritesPageState extends State<FavoritesPage> {
                         bottomRight: Radius.circular(50),
                       ),
                       image: DecorationImage(
-                        image: AssetImage('images/vingadores2.jpg'),
+                        image: AssetImage('images/studiosmarvel.jpg'),
                         fit: BoxFit.fill,
                       ),
                     ),
                     child: Container(
-                      height: constraints.maxHeight/ 3,
+                      height: constraints.maxHeight / 2.5,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
@@ -70,7 +70,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     top: 25,
                     child: IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, Routes.marvelListPage2);
+                        Navigator.pushNamed(context,
+                            Routes.marvelListPage2);
                       },
                       icon: const Icon(
                         Icons.arrow_back_ios_new,
@@ -81,30 +82,30 @@ class _FavoritesPageState extends State<FavoritesPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  'Favoritos',
+                  'Minha lista',
                   style: AppTextStyle.font22,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Container(
-                  height: constraints.maxHeight / 2 -10,
+                  height: constraints.maxHeight / 2 ,
                   width:double.infinity,
                   child: ListView.builder(
                       scrollDirection:  Axis.horizontal,
-                      itemCount: provider.listFavorites.length,
+                      itemCount: provider.listLater.length,
                       itemBuilder: (context, index) {
-                        var lista = provider.listFavorites[index];
+                        var lista = provider.listLater[index];
                         return Column(
                           children: [
                             Container(
-                              height: constraints.maxHeight / 2.5 -10,
-                              width: constraints.maxWidth /2 -8 ,
+                              height:constraints.maxHeight / 2.5,
+                              width: constraints.maxWidth /2 -8,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(30),
                                 child: Card(

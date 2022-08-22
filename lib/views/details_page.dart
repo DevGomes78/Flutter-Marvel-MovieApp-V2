@@ -89,6 +89,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         provider.toogleFavorite();
                         if (provider.isFavorite) {
                           provider.favoritosOnly(widget.data!);
+
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text(
@@ -170,35 +171,41 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
             Padding(
               padding: const EdgeInsets.all(20),
-              child: Container(
-                height: 60,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.black54),
-                child: Row(
-                  children: [
-                    Text(
-                      'Assistir mais tarde',
-                      style: AppTextStyle.font22Bold,
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    height: 80,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black,
                     ),
-                    Consumer<Watchlater>(
-                      builder: (context, value, child) => IconButton(
-                        onPressed: () {
-                          value.listLaterOnly(widget.data!);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('Assistir mais tarde!')));
-                        },
-                        icon: const Icon(
-                          Icons.add,
-                          size: 35,
-                          color: Colors.white,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Minha Lista'),
                         ),
-                      ),
+                        Consumer<MyList>(
+                          builder: (context, value, child) => IconButton(
+                            onPressed: () {
+                              value.listLaterOnly(widget.data!);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text('Adicionado a minha lista!')));
+                            },
+                            icon: const Icon(
+                              Icons.add,
+                              size: 25,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             )
           ],

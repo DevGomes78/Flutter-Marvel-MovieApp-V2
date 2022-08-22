@@ -20,7 +20,6 @@ class MarvelListPage2 extends StatefulWidget {
 }
 
 class _MarvelListPage2State extends State<MarvelListPage2> {
-  NotasMovie? notasMovie;
   late final MarvelController controller;
   var lista;
 
@@ -34,7 +33,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   @override
   Widget build(BuildContext context) {
     MarvelController provider = Provider.of<MarvelController>(context);
-    return LayoutBuilder(builder: (context, constrains) {
+    return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         appBar: buildAppBar(context),
         drawer: const drawer(),
@@ -42,6 +41,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 10),
               carrouselSlider(provider),
               const SizedBox(height: 10),
               Padding(
@@ -89,10 +89,11 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   }
 
   Padding listMovie(MarvelController provider) {
+    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
       child: Container(
-        height:  MediaQuery.of(context).size.height /3.2,
+        height:  size.height /3.2,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -103,8 +104,8 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    height: MediaQuery.of(context).size.height/4,
-                    width: MediaQuery.of(context).size.width /2 - 20,
+                    height: size.height/4,
+                    width: size.width /2 - 18,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
@@ -168,6 +169,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   }
 
   Container carrouselSlider(MarvelController provider) {
+    var size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.all(10),
       child: CarouselSlider.builder(
@@ -175,7 +177,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
         options: CarouselOptions(
           enlargeCenterPage: true,
           initialPage: 2,
-          height: MediaQuery.of(context).size.height/3.5,
+          height: size.height/3.5,
           autoPlay: true,
           autoPlayInterval: const Duration(seconds: 3),
           reverse: false,

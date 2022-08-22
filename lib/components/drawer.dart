@@ -31,7 +31,7 @@ class drawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.add),
-            title: const Text("Assistir mais tarde"),
+            title: const Text("Minha lista"),
             onTap: () {
               Navigator.pushNamed(context,Routes.watchLater);
               //Navegar para outra página

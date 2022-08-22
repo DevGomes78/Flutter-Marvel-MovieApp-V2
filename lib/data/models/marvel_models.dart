@@ -20,7 +20,7 @@ class MarvelModels extends ChangeNotifier {
   }
 }
 
-class Data {
+class Data{
   int? id;
   String? title;
   String? releaseDate;
@@ -72,20 +72,4 @@ class Data {
   }
 }
 
-class NotasMovie extends ChangeNotifier{
-  String? nota;
-  List<String> notas = [
-    '9.5',
-    '8.4',
-    '7.5',
-    '5.5',
-    '8.0',
-    '7.5',
-  ];
 
-  notaMovie(nota){
-    for (var nota in notas){
-      notifyListeners();
-    }
-  }
-}
