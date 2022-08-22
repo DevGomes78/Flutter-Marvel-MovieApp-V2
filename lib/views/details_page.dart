@@ -5,7 +5,7 @@ import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
 import '../constants/error_constants.dart';
 import '../constants/image_constants.dart';
-import '../controller/watch_later.dart';
+import '../controller/mylist.dart';
 import '../data/models/marvel_models.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
@@ -87,22 +87,20 @@ class _DetailsPageState extends State<DetailsPage> {
                     builder: (context, provider, child) => IconButton(
                       onPressed: () {
                         provider.toogleFavorite();
-                        if (provider.isFavorite) {
-                          provider.favoritosOnly(widget.data!);
+                        if (!provider.listFavorites.contains(widget.data)) {
+                          provider.listFavorites.add(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text(
-                                      'Adicionado aos Favoritos!')));
+                                  content: Text('Adicionado aos Favoritos!')));
                         } else {
-                          provider.removeFavorites(widget.data!);
+                          provider.listFavorites.remove(widget.data!);
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text(
-                                      'Removido dos Favoritos!')));
+                                  content: Text('removido dos Favoritos!')));
                         }
                       },
                       icon: Icon(
-                        provider.isFavorite
+                        provider.listFavorites.contains(widget.data)
                             ? Icons.favorite
                             : Icons.favorite_border,
                         size: 30,
