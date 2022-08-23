@@ -60,14 +60,14 @@ class _DetailsPageState extends State<DetailsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(widget.data!.overview.toString()),
             ),
-            myList()
+            myListButton()
           ],
         ),
       ),
     );
   }
 
-  Padding myList() {
+  Padding myListButton() {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Container(
@@ -208,8 +208,8 @@ class _DetailsPageState extends State<DetailsPage> {
   void favoritesController(Favorites provider, BuildContext context) {
     if (!provider.listFavorites.contains(widget.data)) {
       provider.listFavorites.add(widget.data!);
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Adicionado aos Favoritos!')));
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Adicionado aos Favoritos!')));
     } else {
       provider.listFavorites.remove(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(
