@@ -138,14 +138,19 @@ class _FavoritesPageState extends State<FavoritesPage> {
         Positioned(
           left: 15,
           top: 25,
-          child: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, Routes.marvelListPage2);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new,
-              size: 30,
-              color: Colors.white,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white12),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.marvelListPage2);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                size: 30,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

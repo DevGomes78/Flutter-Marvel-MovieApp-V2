@@ -156,17 +156,34 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ),
         ),
+        Container(
+          height: MediaQuery.of(context).size.height / 2,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: const LinearGradient(
+              colors: [Colors.black54, Colors.transparent],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        ),
         Positioned(
           left: 15,
           top: 15,
-          child: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, Routes.marvelListPage2);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new,
-              size: 30,
-              color: Colors.white,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white12),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.marvelListPage2);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                size: 30,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -184,19 +201,24 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         Positioned(
           right: 20,
-          top: 20,
-          child: Consumer<Favorites>(
-            builder: (context, provider, child) => IconButton(
-              onPressed: () {
-                provider.toogleFavorite();
-                favoritesController(provider, context);
-              },
-              icon: Icon(
-                provider.listFavorites.contains(widget.data)
-                    ? Icons.favorite
-                    : Icons.favorite_border,
-                size: 30,
-                color: Colors.white,
+          top: 15,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white12),
+            child: Consumer<Favorites>(
+              builder: (context, provider, child) => IconButton(
+                onPressed: () {
+                  provider.toogleFavorite();
+                  favoritesController(provider, context);
+                },
+                icon: Icon(
+                  provider.listFavorites.contains(widget.data)
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                  size: 30,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
