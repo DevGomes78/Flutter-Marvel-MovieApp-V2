@@ -42,6 +42,7 @@ dependencies:
   intl:
   carousel_slider:
   device_preview:
+  smooth_page_indicator:
 
 dev_dependencies:
   flutter_test:

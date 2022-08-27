@@ -12,8 +12,8 @@ class StringConstants{
   static const assistaAgora = 'Assista agora';
   static const atoresPrincipais ='Atores principais';
   static const minhaLista ='Minha lista';
-  static const myListPageInfoCard =  'Assine a conta premiun e aproveite os  melhores lançamentos marvel ';
-
+  static const InfoCard =  'Assine a conta premiun e aproveite os  melhores lançamentos marvel ';
+  static const popular ='Popular';
 
 
 

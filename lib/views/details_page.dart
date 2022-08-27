@@ -177,7 +177,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 color: Colors.white12),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, Routes.marvelListPage2);
+                Navigator.pushNamed(context, Routes.HOME);
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,

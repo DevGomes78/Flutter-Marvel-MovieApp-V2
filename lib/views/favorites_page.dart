@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style.dart';
 import 'package:provider/provider.dart';
 import '../constants/image_constants.dart';
+import '../constants/string_constants.dart';
 import '../controller/favourites_controller.dart';
 import '../utils/routes.dart';
 
@@ -34,7 +35,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Text(
-        'Favoritos',
+        StringConstants.favorites,
         style: AppTextStyle.font22,
       ),
     );
@@ -44,7 +45,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
-        height: constraints.maxHeight / 2 - 10,
+        height: constraints.maxHeight / 2.2,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -54,7 +55,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               return Column(
                 children: [
                   Container(
-                    height: constraints.maxHeight / 2.5 - 10,
+                    height: constraints.maxHeight / 2.6 - 10,
                     width: constraints.maxWidth / 2,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
@@ -104,7 +105,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               bottomRight: Radius.circular(50),
             ),
             image: DecorationImage(
-              image: AssetImage('images/vingadores2.jpg'),
+              image: AssetImage(ImageConstants.favoritesCardMovie),
               fit: BoxFit.fill,
             ),
           ),
@@ -126,8 +127,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
-                    'Assine a conta premiun e aproveite os '
-                    'melhores lançamentos marvel!',
+                    StringConstants.InfoCard,
                     style: AppTextStyle.font22,
                   ),
                 ),
@@ -140,11 +140,10 @@ class _FavoritesPageState extends State<FavoritesPage> {
           top: 25,
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white12),
+                borderRadius: BorderRadius.circular(10), color: Colors.white12),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, Routes.marvelListPage2);
+                Navigator.pushNamed(context, Routes.HOME);
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,

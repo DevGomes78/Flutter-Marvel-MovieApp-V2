@@ -131,7 +131,7 @@ class _MylistPageState extends State<MylistPage> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
-                    StringConstants.myListPageInfoCard,
+                    StringConstants.InfoCard,
                     style: AppTextStyle.font22,
                   ),
                 ),
@@ -147,7 +147,7 @@ class _MylistPageState extends State<MylistPage> {
                 borderRadius: BorderRadius.circular(10), color: Colors.white12),
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, Routes.marvelListPage2);
+                Navigator.pushNamed(context, Routes.HOME);
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,

@@ -3,14 +3,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:marvel/components/drawer.dart';
 import 'package:provider/provider.dart';
-import '../components/star_list.dart';
 import '../components/text_style.dart';
 import '../constants/image_constants.dart';
 import '../constants/string_constants.dart';
 import '../controller/marvel_controller.dart';
 import '../controller/search_movie.dart';
-import '../data/models/marvel_models.dart';
 import 'details_page.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MarvelListPage2 extends StatefulWidget {
   const MarvelListPage2({Key? key}) : super(key: key);
@@ -20,6 +19,8 @@ class MarvelListPage2 extends StatefulWidget {
 }
 
 class _MarvelListPage2State extends State<MarvelListPage2> {
+  int activeIndex = 0;
+
 
   late final MarvelController controller;
   var lista;
@@ -30,6 +31,8 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     controller.getData(query: '');
     super.initState();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,32 +46,30 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 10),
-              carrouselSlider(provider),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child: Text(StringConstants.assistaAgora,
                     style: AppTextStyle.font18),
               ),
-              listMovie(provider),
+              carrouselSlider(provider),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  StringConstants.atoresPrincipais,
-                  style: AppTextStyle.font18,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child:
+                    Text(StringConstants.popular, style: AppTextStyle.font18),
               ),
-              const StarList(),
+              listMovie(provider),
             ],
           ),
         ),
+
       );
     });
   }
 
-
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
+      // backgroundColor: Colors.transparent,
       title: Text(
         StringConstants.titleText,
         style: AppTextStyle.font22Bold,
@@ -90,9 +91,9 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   Padding listMovie(MarvelController provider) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Container(
-        height:  MediaQuery.of(context).size.height /3.5,
+        height: MediaQuery.of(context).size.height / 3,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -103,8 +104,8 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    height: MediaQuery.of(context).size.height/4.5,
-                    width: MediaQuery.of(context).size.width /2 - 9,
+                    height: MediaQuery.of(context).size.height / 4,
+                    width: MediaQuery.of(context).size.width / 2 - 9,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
@@ -156,8 +157,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                         ),
                       ),
                       const SizedBox(width: 10),
-
-                          Text('8.5', style: AppTextStyle.font15),
+                      Text('8.5', style: AppTextStyle.font15),
                     ],
                   ),
                 ],
@@ -167,53 +167,71 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  Container carrouselSlider(MarvelController provider) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 2,vertical: 10),
-      child: CarouselSlider.builder(
-        itemCount: provider.lista.length,
-        options: CarouselOptions(
-          enlargeCenterPage: true,
-          initialPage: 2,
-          height: MediaQuery.of(context).size.height/3.5,
-          autoPlay: true,
-          autoPlayInterval: const Duration(seconds: 3),
-          reverse: false,
-          aspectRatio: 5.0,
+  Column carrouselSlider(MarvelController provider) {
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 10),
+          child: CarouselSlider.builder(
+            itemCount: provider.lista.length,
+            options: CarouselOptions(
+              enlargeCenterPage: true,
+              initialPage: 5,
+              height: MediaQuery.of(context).size.height / 3.5,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              reverse: false,
+              aspectRatio: 5.0,
+              onPageChanged: (index, reason) =>
+                  setState(() => activeIndex = index),
+            ),
+            itemBuilder: (context, index, id) {
+              return (index <= 0)
+                  ? Container()
+                  : GestureDetector(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.white,
+                          ),
+                        ),
+                        //ClipRRect for image border radius
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.network(
+                            provider.lista[index].coverUrl.toString(),
+                            width: 420,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                      data: provider.lista[index],
+                                    )));
+                      },
+                    );
+            },
+          ),
         ),
-        itemBuilder: (context, index, id) {
-          return (index <= 0)
-              ? Container()
-              : GestureDetector(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        color: Colors.white,
-                      ),
-                    ),
-                    //ClipRRect for image border radius
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        provider.lista[index].coverUrl.toString(),
-                        width: 420,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailsPage(
-                                  data: provider.lista[index],
-                                )));
-                  },
-                );
-        },
-      ),
+        const SizedBox(height: 10),
+        buildIndicator(provider),
+      ],
     );
   }
-}
 
+  buildIndicator(MarvelController provider) => AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: provider.lista.length,
+        effect: const ScrollingDotsEffect(
+          dotHeight: 18,
+          dotWidth: 18,
+          activeDotColor: Colors.white,
+          dotColor: Colors.grey,
+        ),
+      );
+}
