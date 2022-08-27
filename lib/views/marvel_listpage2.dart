@@ -148,7 +148,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10,),
                         child: Container(
                           alignment: Alignment.center,
                           height: 25,
