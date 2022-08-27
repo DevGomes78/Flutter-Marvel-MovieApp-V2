@@ -157,7 +157,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      Text('8.5', style: AppTextStyle.font15),
+                      Text('8.5', style: AppTextStyle.font15,),
                     ],
                   ),
                 ],
