@@ -139,7 +139,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10,),
                     child: Text(
                       provider.lista[index].title.toString(),
                       style: AppTextStyle.font12Bold,
