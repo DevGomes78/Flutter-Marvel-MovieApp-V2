@@ -3,7 +3,6 @@ import 'favorites_page.dart';
 import 'marvel_listpage2.dart';
 import 'mylist_page.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -13,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  final screens =[
+  final screens = [
     const MarvelListPage2(),
     const MylistPage(),
     FavoritesPage(),
@@ -24,17 +23,16 @@ class _HomePageState extends State<HomePage> {
       currentIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: screens[ currentIndex],
-
+    return Scaffold(
+      body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTabTapped,
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: ("Minha conta")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ("home")),
           BottomNavigationBarItem(
               icon: Icon(Icons.library_add_sharp), label: ("Minha lista")),
           BottomNavigationBarItem(
