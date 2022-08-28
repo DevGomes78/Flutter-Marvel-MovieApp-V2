@@ -21,7 +21,6 @@ class MarvelListPage2 extends StatefulWidget {
 class _MarvelListPage2State extends State<MarvelListPage2> {
   int activeIndex = 0;
 
-
   late final MarvelController controller;
   var lista;
 
@@ -31,8 +30,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     controller.getData(query: '');
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +58,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
             ],
           ),
         ),
-
       );
     });
   }
@@ -139,7 +135,9 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10,),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
                     child: Text(
                       provider.lista[index].title.toString(),
                       style: AppTextStyle.font12Bold,
@@ -148,7 +146,9 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10,),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
                         child: Container(
                           alignment: Alignment.center,
                           height: 25,
@@ -157,7 +157,10 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      Text('8.5', style: AppTextStyle.font15,),
+                      Text(
+                        '8.5',
+                        style: AppTextStyle.font15,
+                      ),
                     ],
                   ),
                 ],

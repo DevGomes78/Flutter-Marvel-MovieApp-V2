@@ -42,12 +42,6 @@ class _DetailsPageState extends State<DetailsPage> {
             const SizedBox(height: 20),
             infoDetailsMovie(),
             const SizedBox(height: 20),
-            Container(
-              alignment: Alignment.center,
-              height: 45,
-              width: double.infinity,
-              child: Image.asset(ImageConstants.imageAsset),
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
@@ -60,41 +54,6 @@ class _DetailsPageState extends State<DetailsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(widget.data!.overview.toString()),
             ),
-            myListButton()
-          ],
-        ),
-      ),
-    );
-  }
-
-  Padding myListButton() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Container(
-        height: 60,
-        width: double.infinity,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40), color: Colors.black54),
-        child: Row(
-          children: [
-            Text(
-              'Assistir mais tarde',
-              style: AppTextStyle.font22,
-            ),
-            Consumer<MyList>(
-              builder: (context, value, child) => IconButton(
-                onPressed: () {
-                  value.listLaterOnly(widget.data!);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Assistir mais tarde!')));
-                },
-                icon: const Icon(
-                  Icons.add,
-                  size: 35,
-                  color: Colors.white,
-                ),
-              ),
-            ),
           ],
         ),
       ),
@@ -104,7 +63,7 @@ class _DetailsPageState extends State<DetailsPage> {
   Row infoDetailsMovie() {
     return Row(
       children: [
-        const SizedBox(width: 110),
+        const SizedBox(width: 20),
         Text(
           (DateFormat("yyyy")
               .format(DateTime.parse(widget.data!.releaseDate.toString()))),
@@ -114,7 +73,7 @@ class _DetailsPageState extends State<DetailsPage> {
           ),
         ),
         const SizedBox(width: 15),
-        container(),
+        Text('|'),
         const SizedBox(width: 15),
         Text(
           widget.data!.duration.toString(),
@@ -129,11 +88,46 @@ class _DetailsPageState extends State<DetailsPage> {
           style: AppTextStyle.font15,
         ),
         const SizedBox(width: 8),
-        container(),
-        const SizedBox(width: 18),
-        Text(
-          StringConstants.genre,
-          style: AppTextStyle.font15,
+        Text('|'),
+        const SizedBox(width: 10),
+        Container(
+          alignment: Alignment.center,
+          height: 15,
+          child: Image.asset(ImageConstants.imageAssetEstrela),
+        ),
+        const SizedBox(width: 10),
+        Text('8.5', style: AppTextStyle.font15),
+        const SizedBox(width: 30),
+        Container(
+          alignment: Alignment.topLeft,
+          height: 35,
+          width: 150,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.black54,
+          ),
+          child: Row(
+            children: [
+              Consumer<MyList>(
+                builder: (context, value, child) => IconButton(
+                  onPressed: () {
+                    value.listLaterOnly(widget.data!);
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Adicionado a minha lista!')));
+                  },
+                  icon: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5),
+              Text(
+                'Minha Lista',
+                style: AppTextStyle.font15,
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -173,8 +167,7 @@ class _DetailsPageState extends State<DetailsPage> {
           top: 15,
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white12),
+                borderRadius: BorderRadius.circular(10), color: Colors.white12),
             child: IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, Routes.HOME);
@@ -204,8 +197,7 @@ class _DetailsPageState extends State<DetailsPage> {
           top: 15,
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white12),
+                borderRadius: BorderRadius.circular(10), color: Colors.white12),
             child: Consumer<Favorites>(
               builder: (context, provider, child) => IconButton(
                 onPressed: () {
