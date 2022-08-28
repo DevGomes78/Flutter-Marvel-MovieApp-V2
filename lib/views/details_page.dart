@@ -3,6 +3,7 @@ import 'package:marvel/components/text_style.dart';
 import 'package:marvel/constants/string_constants.dart';
 import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
+import '../components/star_list.dart';
 import '../constants/error_constants.dart';
 import '../constants/image_constants.dart';
 import '../controller/mylist.dart';
@@ -54,6 +55,8 @@ class _DetailsPageState extends State<DetailsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(widget.data!.overview.toString()),
             ),
+            const SizedBox(height: 20),
+            StarList(),
           ],
         ),
       ),
@@ -103,7 +106,7 @@ class _DetailsPageState extends State<DetailsPage> {
           height: 35,
           width: 150,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(20),
             color: Colors.black54,
           ),
           child: Row(
@@ -124,7 +127,7 @@ class _DetailsPageState extends State<DetailsPage> {
               const SizedBox(width: 5),
               Text(
                 'Minha Lista',
-                style: AppTextStyle.font15,
+                style: AppTextStyle.font14,
               ),
             ],
           ),
