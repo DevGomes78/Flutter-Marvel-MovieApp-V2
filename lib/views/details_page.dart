@@ -50,12 +50,17 @@ class _DetailsPageState extends State<DetailsPage> {
                 style: AppTextStyle.font25Bold,
               ),
             ),
-            const SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
               child: Text(widget.data!.overview.toString()),
             ),
-            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                StringConstants.atoresPrincipais,
+                style: AppTextStyle.font22,
+              ),
+            ),
             StarList(),
           ],
         ),
@@ -116,19 +121,19 @@ class _DetailsPageState extends State<DetailsPage> {
                   onPressed: () {
                     value.listLaterOnly(widget.data!);
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Adicionado a minha lista!')));
+                        content: Text(StringConstants.adicionadoAMinhaLista)));
                   },
                   icon: Icon(
-                    value.listLater.contains(widget.data)?
-                        Icons.check_circle_outline:
-                    Icons.add,
+                    value.listLater.contains(widget.data)
+                        ? Icons.check_circle_outline
+                        : Icons.add,
                     color: Colors.white,
                   ),
                 ),
               ),
               const SizedBox(width: 5),
               Text(
-                'Minha Lista',
+               StringConstants.minhaLista,
                 style: AppTextStyle.font14,
               ),
             ],
@@ -169,7 +174,7 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         Positioned(
           left: 15,
-          top: 15,
+          top: 25,
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10), color: Colors.white12),
@@ -199,7 +204,7 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         Positioned(
           right: 20,
-          top: 15,
+          top: 25,
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10), color: Colors.white12),
@@ -228,11 +233,11 @@ class _DetailsPageState extends State<DetailsPage> {
     if (!provider.listFavorites.contains(widget.data)) {
       provider.listFavorites.add(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Adicionado aos Favoritos!')));
+          const SnackBar(content: Text(StringConstants.adicionadoaosfavoritos)));
     } else {
       provider.listFavorites.remove(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('removido dos Favoritos!')));
+          const SnackBar(content: Text(StringConstants.removidoDosFavoritos)));
     }
   }
 
