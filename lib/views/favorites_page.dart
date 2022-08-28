@@ -43,7 +43,10 @@ class _FavoritesPageState extends State<FavoritesPage> {
     );
   }
 
-  Padding favoritesListMovie(BoxConstraints constraints, Favorites provider) {
+  Padding favoritesListMovie(
+    BoxConstraints constraints,
+    Favorites provider,
+  ) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
@@ -58,7 +61,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                 children: [
                   Container(
                     height: constraints.maxHeight / 2.5,
-                    width: constraints.maxWidth / 2 -8,
+                    width: constraints.maxWidth / 2 - 8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: Card(

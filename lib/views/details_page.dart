@@ -61,7 +61,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 style: AppTextStyle.font22,
               ),
             ),
-            StarList(),
+            const StarList(),
           ],
         ),
       ),
@@ -81,7 +81,7 @@ class _DetailsPageState extends State<DetailsPage> {
           ),
         ),
         const SizedBox(width: 15),
-        Text('|'),
+        const Text('|'),
         const SizedBox(width: 15),
         Text(
           widget.data!.duration.toString(),
@@ -96,7 +96,7 @@ class _DetailsPageState extends State<DetailsPage> {
           style: AppTextStyle.font15,
         ),
         const SizedBox(width: 8),
-        Text('|'),
+        const Text('|'),
         const SizedBox(width: 10),
         Container(
           alignment: Alignment.center,
