@@ -33,7 +33,7 @@ class drawer extends StatelessWidget {
             leading: Icon(Icons.add),
             title: const Text("Minha lista"),
             onTap: () {
-              Navigator.pushNamed(context,Routes.watchLater);
+              Navigator.pushNamed(context,Routes.myListPage);
               //Navegar para outra página
 
             },

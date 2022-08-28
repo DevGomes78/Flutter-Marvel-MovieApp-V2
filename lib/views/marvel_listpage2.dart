@@ -52,7 +52,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child:
-                    Text(StringConstants.popular, style: AppTextStyle.font22),
+                    Text(StringConstants.recomendados, style: AppTextStyle.font22),
               ),
               listMovie(provider),
             ],

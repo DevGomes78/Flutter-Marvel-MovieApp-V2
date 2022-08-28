@@ -13,7 +13,7 @@ class StringConstants{
   static const atoresPrincipais ='Atores principais';
   static const minhaLista ='Minha lista';
   static const InfoCard =  'Assine a conta premiun e aproveite os  melhores lançamentos marvel ';
-  static const popular ='Popular';
+  static const recomendados ='Recomendados';
   static const adicionadoAMinhaLista = 'Adicionado a minha lista!';
   static const adicionadoaosfavoritos ='Adicionado aos Favoritos!';
   static const removidoDosFavoritos ='removido dos Favoritos!';
