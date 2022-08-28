@@ -102,7 +102,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Stack(
       children: [
         Container(
-          height: constraints.maxHeight / 2.4,
+          height: constraints.maxHeight / 2.2,
           width: double.infinity,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -115,7 +115,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             ),
           ),
           child: Container(
-            height: constraints.maxHeight / 3,
+            height: constraints.maxHeight / 2.2,
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),

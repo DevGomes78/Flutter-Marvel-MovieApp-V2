@@ -42,7 +42,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child: Text(StringConstants.assistaAgora,
@@ -50,7 +50,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
               ),
               carrouselSlider(provider),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                 child:
                     Text(StringConstants.recomendados, style: AppTextStyle.font22),
               ),
@@ -89,7 +89,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Container(
-        height: MediaQuery.of(context).size.height / 3,
+        height: MediaQuery.of(context).size.height / 2.7,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -100,7 +100,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    height: MediaQuery.of(context).size.height / 4,
+                    height: MediaQuery.of(context).size.height / 3.7,
                     width: MediaQuery.of(context).size.width / 2 - 9,
                     child: InkWell(
                       onTap: () {

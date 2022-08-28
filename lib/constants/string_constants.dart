@@ -18,6 +18,4 @@ class StringConstants{
   static const adicionadoaosfavoritos ='Adicionado aos Favoritos!';
   static const removidoDosFavoritos ='removido dos Favoritos!';
 
-
-
 }

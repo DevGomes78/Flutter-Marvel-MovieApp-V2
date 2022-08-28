@@ -64,9 +64,9 @@ class StarList extends StatelessWidget {
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
-                  width: 80,
+                  width: 84,
                   child: Text(
-                    '  Chris Hemsworth ',style: AppTextStyle.font14,
+                    'Chris Hemsworth',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -83,7 +83,7 @@ class StarList extends StatelessWidget {
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
-                  width: 70,
+                  width: 75,
                   child:  Text(
                     '  Robert Downey Jr',style: AppTextStyle.font14,
                     overflow: TextOverflow.clip,

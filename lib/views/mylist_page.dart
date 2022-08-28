@@ -49,7 +49,7 @@ class _MylistPageState extends State<MylistPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Container(
-        height: constraints.maxHeight / 2,
+        height: constraints.maxHeight / 2.2,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -59,7 +59,7 @@ class _MylistPageState extends State<MylistPage> {
               return Column(
                 children: [
                   Container(
-                    height: constraints.maxHeight / 2.5,
+                    height: constraints.maxHeight / 2.8,
                     width: constraints.maxWidth / 2 - 8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
@@ -101,7 +101,7 @@ class _MylistPageState extends State<MylistPage> {
     return Stack(
       children: [
         Container(
-          height: constraints.maxHeight / 2.3,
+          height: constraints.maxHeight / 2.2,
           width: double.infinity,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
