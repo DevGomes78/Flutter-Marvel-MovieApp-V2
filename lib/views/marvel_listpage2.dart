@@ -49,13 +49,13 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child: Text(StringConstants.assistaAgora,
-                    style: AppTextStyle.font18),
+                    style: AppTextStyle.font22),
               ),
               carrouselSlider(provider),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child:
-                    Text(StringConstants.popular, style: AppTextStyle.font18),
+                    Text(StringConstants.popular, style: AppTextStyle.font22),
               ),
               listMovie(provider),
             ],
@@ -72,7 +72,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
       // backgroundColor: Colors.transparent,
       title: Text(
         StringConstants.titleText,
-        style: AppTextStyle.font22Bold,
+        style: AppTextStyle.font22,
       ),
       centerTitle: true,
       actions: [
