@@ -118,7 +118,9 @@ class _DetailsPageState extends State<DetailsPage> {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text('Adicionado a minha lista!')));
                   },
-                  icon: const Icon(
+                  icon: Icon(
+                    value.listLater.contains(widget.data)?
+                        Icons.check_circle_outline:
                     Icons.add,
                     color: Colors.white,
                   ),

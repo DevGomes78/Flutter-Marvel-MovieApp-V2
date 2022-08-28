@@ -17,15 +17,17 @@ class _FavoritesPageState extends State<FavoritesPage> {
     final provider = Provider.of<Favorites>(context);
     return Scaffold(
       body: LayoutBuilder(
-        builder: (context, constraints) => Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            cardMovie(constraints, context),
-            const SizedBox(height: 20),
-            favoritesText(),
-            const SizedBox(height: 10),
-            favoritesListMovie(constraints, provider),
-          ],
+        builder: (context, constraints) => SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              cardMovie(constraints, context),
+              const SizedBox(height: 20),
+              favoritesText(),
+              const SizedBox(height: 10),
+              favoritesListMovie(constraints, provider),
+            ],
+          ),
         ),
       ),
     );
@@ -45,7 +47,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
-        height: constraints.maxHeight / 2.2,
+        height: constraints.maxHeight / 2,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -55,8 +57,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
               return Column(
                 children: [
                   Container(
-                    height: constraints.maxHeight / 2.6 - 10,
-                    width: constraints.maxWidth / 2,
+                    height: constraints.maxHeight / 2.5,
+                    width: constraints.maxWidth / 2 -8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: Card(
