@@ -38,20 +38,22 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
       return Scaffold(
         appBar: buildAppBar(context),
         drawer: const drawer(),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 15),
-              textAssistaAgora(),
-              carrouselSlider(provider),
-              textRecomended(),
-              listMovieRecommended(provider),
-              textTop10(),
-              listMovieTop10(context, provider)
-            ],
-          ),
-        ),
+        body: provider.lista.isEmpty
+            ? const Center(child: CircularProgressIndicator())
+            : SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 15),
+                    textAssistaAgora(),
+                    carrouselSlider(provider),
+                    textRecomended(),
+                    listMovieRecommended(provider),
+                    textTop10(),
+                    listMovieTop10(context, provider)
+                  ],
+                ),
+              ),
       );
     });
   }

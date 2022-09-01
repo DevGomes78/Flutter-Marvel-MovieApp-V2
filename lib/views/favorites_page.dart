@@ -16,21 +16,24 @@ class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Favorites>(context);
+
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) => SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              cardMovie(constraints, context),
-              const SizedBox(height: 20),
-              favoritesText(),
-              const SizedBox(height: 10),
-              favoritesListMovie(constraints, provider),
-            ],
-          ),
-        ),
-      ),
+      body: provider.listFavorites.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : LayoutBuilder(
+              builder: (context, constraints) => SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    cardMovie(constraints, context),
+                    const SizedBox(height: 20),
+                    favoritesText(),
+                    const SizedBox(height: 10),
+                    favoritesListMovie(constraints, provider),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 
@@ -66,13 +69,13 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => DetailsPage(
-                                    data: lista,
-                                  )));
+                                        data: lista,
+                                      )));
                         },
                         child: Card(
                           margin: const EdgeInsets.symmetric(horizontal: 5),

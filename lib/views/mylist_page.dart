@@ -19,20 +19,22 @@ class _MylistPageState extends State<MylistPage> {
   Widget build(BuildContext context) {
     final provider = Provider.of<MyListController>(context);
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) => SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              cardMyListMovie(constraints, context),
-              const SizedBox(height: 15),
-              myListtText(),
-              const SizedBox(height: 10),
-              myListMovie(constraints, provider),
-            ],
-          ),
-        ),
-      ),
+      body: provider.myList.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : LayoutBuilder(
+              builder: (context, constraints) => SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    cardMyListMovie(constraints, context),
+                    const SizedBox(height: 15),
+                    myListtText(),
+                    const SizedBox(height: 10),
+                    myListMovie(constraints, provider),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 
@@ -65,13 +67,13 @@ class _MylistPageState extends State<MylistPage> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => DetailsPage(
-                                    data: lista,
-                                  )));
+                                        data: lista,
+                                      )));
                         },
                         child: Card(
                           margin: const EdgeInsets.symmetric(horizontal: 5),
