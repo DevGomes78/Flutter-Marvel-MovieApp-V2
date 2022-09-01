@@ -43,29 +43,38 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                child: Text(StringConstants.assistaAgora,
-                    style: AppTextStyle.font22),
-              ),
+              textAssistaAgora(),
               carrouselSlider(provider),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                child: Text(StringConstants.recomendados,
-                    style: AppTextStyle.font22),
-              ),
+              textRecomended(),
               listMovieRecommended(provider),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Text('Top 10', style: AppTextStyle.font22),
-              ),
+              textTop10(),
               listMovieTop10(context, provider)
             ],
           ),
         ),
       );
     });
+  }
+
+  Padding textTop10() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Text('Top 10', style: AppTextStyle.font22),
+    );
+  }
+
+  Padding textRecomended() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      child: Text(StringConstants.recomendados, style: AppTextStyle.font22),
+    );
+  }
+
+  Padding textAssistaAgora() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      child: Text(StringConstants.assistaAgora, style: AppTextStyle.font22),
+    );
   }
 
   Padding listMovieTop10(BuildContext context, MarvelController provider) {

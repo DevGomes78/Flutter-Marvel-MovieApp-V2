@@ -61,7 +61,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               return Column(
                 children: [
                   Container(
-                    height: constraints.maxHeight / 2.5,
+                    height: constraints.maxHeight / 2.8,
                     width: constraints.maxWidth / 2 - 8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
