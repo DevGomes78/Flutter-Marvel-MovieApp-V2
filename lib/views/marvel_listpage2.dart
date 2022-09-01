@@ -138,26 +138,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                       style: AppTextStyle.font12Bold,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 25,
-                          width: 50,
-                          child: Image.asset(ImageConstants.imageAsset5Stars),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        '8.5',
-                        style: AppTextStyle.font15,
-                      ),
-                    ],
-                  ),
+
                 ],
               );
             }),
@@ -192,7 +173,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Container(
-        height: MediaQuery.of(context).size.height / 3,
+        height: MediaQuery.of(context).size.height / 3.4,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -216,23 +197,26 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image(
-                          image: CachedNetworkImageProvider(
-                            provider.lista[index].coverUrl.toString(),
-                            maxHeight: 260,
-                            maxWidth: 200,
+                        child: Hero(
+                          tag:provider.lista[index].coverUrl.toString(),
+                          child: Image(
+                            image: CachedNetworkImageProvider(
+                              provider.lista[index].coverUrl.toString(),
+                              maxHeight: 260,
+                              maxWidth: 200,
+                            ),
+                            loadingBuilder: (context, child, progress) {
+                              if (progress == null) {
+                                return child;
+                              }
+                              return const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.grey,
+                                ),
+                              );
+                            },
+                            fit: BoxFit.fill,
                           ),
-                          loadingBuilder: (context, child, progress) {
-                            if (progress == null) {
-                              return child;
-                            }
-                            return const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.grey,
-                              ),
-                            );
-                          },
-                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
@@ -245,26 +229,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                       provider.lista[index].title.toString(),
                       style: AppTextStyle.font12Bold,
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 25,
-                          width: 50,
-                          child: Image.asset(ImageConstants.imageAsset5Stars),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        '8.5',
-                        style: AppTextStyle.font15,
-                      ),
-                    ],
                   ),
                 ],
               );
