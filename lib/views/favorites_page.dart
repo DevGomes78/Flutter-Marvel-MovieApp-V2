@@ -5,6 +5,7 @@ import '../constants/image_constants.dart';
 import '../constants/string_constants.dart';
 import '../controller/favourites_controller.dart';
 import '../utils/routes.dart';
+import 'details_page.dart';
 
 class FavoritesPage extends StatefulWidget {
   @override
@@ -64,12 +65,22 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     width: constraints.maxWidth / 2 - 8,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
-                      child: Card(
-                        margin: const EdgeInsets.symmetric(horizontal: 5),
-                        elevation: 5,
-                        child: Image.network(
-                          lista.coverUrl.toString(),
-                          fit: BoxFit.fill,
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailsPage(
+                                    data: lista,
+                                  )));
+                        },
+                        child: Card(
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          elevation: 5,
+                          child: Image.network(
+                            lista.coverUrl.toString(),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),
