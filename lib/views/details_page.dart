@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../components/star_list.dart';
 import '../constants/error_constants.dart';
 import '../constants/image_constants.dart';
-import '../controller/mylist.dart';
+import '../controller/mylist_controller.dart';
 import '../data/models/marvel_models.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
@@ -112,19 +112,19 @@ class _DetailsPageState extends State<DetailsPage> {
           width: 150,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Colors.black54,
+            color: Colors.black26,
           ),
           child: Row(
             children: [
-              Consumer<MyList>(
+              Consumer<MyListController>(
                 builder: (context, value, child) => IconButton(
                   onPressed: () {
-                    value.listLaterOnly(widget.data!);
+                    value.myListOnly(widget.data!);
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text(StringConstants.adicionadoAMinhaLista)));
                   },
                   icon: Icon(
-                    value.listLater.contains(widget.data)
+                    value.myList.contains(widget.data)
                         ? Icons.check_circle_outline
                         : Icons.add,
                     color: Colors.white,

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:marvel/controller/mylist.dart';
+import 'package:marvel/controller/mylist_controller.dart';
 import 'package:marvel/data/models/marvel_models.dart';
 import 'package:marvel/utils/routes.dart';
 import 'package:marvel/views/details_page.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MarvelController()),
         ChangeNotifierProvider(create: (context) => Favorites()),
-        ChangeNotifierProvider(create: (context) => MyList()),
+        ChangeNotifierProvider(create: (context) => MyListController()),
         ChangeNotifierProvider(create: (context) => Data()),
       ],
       child: MaterialApp(

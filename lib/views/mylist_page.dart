@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style.dart';
-import 'package:marvel/controller/mylist.dart';
+import 'package:marvel/controller/mylist_controller.dart';
 import 'package:provider/provider.dart';
 import '../constants/image_constants.dart';
 import '../constants/string_constants.dart';
@@ -17,7 +17,7 @@ class MylistPage extends StatefulWidget {
 class _MylistPageState extends State<MylistPage> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<MyList>(context);
+    final provider = Provider.of<MyListController>(context);
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) => SingleChildScrollView(
@@ -46,7 +46,7 @@ class _MylistPageState extends State<MylistPage> {
     );
   }
 
-  Padding myListMovie(BoxConstraints constraints, MyList provider) {
+  Padding myListMovie(BoxConstraints constraints, MyListController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Container(
@@ -54,9 +54,9 @@ class _MylistPageState extends State<MylistPage> {
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: provider.listLater.length,
+            itemCount: provider.myList.length,
             itemBuilder: (context, index) {
-              var lista = provider.listLater[index];
+              var lista = provider.myList[index];
               return Column(
                 children: [
                   Container(

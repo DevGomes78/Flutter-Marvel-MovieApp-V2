@@ -58,7 +58,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   Padding textTop10() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       child: Text('Top 10', style: AppTextStyle.font22),
     );
   }
@@ -85,7 +85,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: provider.lista.length??0,
+            itemCount: provider.lista.length,
             itemBuilder: (context, index) {
               var list = provider.lista.sublist(9)[index];
               return Column(
@@ -168,7 +168,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
       elevation: 0,
       // backgroundColor: Colors.transparent,
       title: Text(
-        StringConstants.titleText,
+        StringConstants.marvelApp,
         style: AppTextStyle.font22,
       ),
       centerTitle: true,

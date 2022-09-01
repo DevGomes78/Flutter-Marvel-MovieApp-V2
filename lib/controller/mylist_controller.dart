@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/data/models/marvel_models.dart';
 
-class MyList extends ChangeNotifier {
-  List<Data> listLater = [];
+class MyListController extends ChangeNotifier {
+  List<Data> myList = [];
 
-  void listLaterOnly(Data data) {
-    if (listLater.contains(data)) {
+  void myListOnly(Data data) {
+    if (myList.contains(data)) {
     } else {
-      listLater.add(data);
+      myList.add(data);
       notifyListeners();
     }
   }
 
   void removeFavorites(Data data) {
-    listLater.remove(data);
+    myList.remove(data);
     notifyListeners();
   }
 }

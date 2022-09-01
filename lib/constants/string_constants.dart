@@ -1,6 +1,6 @@
 class StringConstants{
 
-  static const titleText = 'Marvel App';
+  static const marvelApp = 'Marvel App';
   static const searchMovies = 'Pesquisar Filmes';
   static const duration = "duration :  ";
   static const minutes = "min ";

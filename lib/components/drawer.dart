@@ -22,30 +22,32 @@ class drawer extends StatelessWidget {
 
           ),
           ListTile(
-            leading: Icon(Icons.person),
+            leading: const Icon(Icons.person,color: Colors.blueAccent,),
             title: const Text("Minha conta"),
             onTap: () {
               Navigator.pop(context);
               //Navegar para outra página
             },
           ),
+          const Divider(color: Colors.white),
           ListTile(
-            leading: Icon(Icons.add),
+            leading: const Icon(Icons.add),
             title: const Text("Minha lista"),
             onTap: () {
               Navigator.pushNamed(context,Routes.myListPage);
               //Navegar para outra página
-
             },
           ),
+          const Divider(color: Colors.white),
           ListTile(
-            leading: Icon(Icons.favorite),
+            leading: const Icon(Icons.favorite,color: Colors.red,),
             title: const Text("Favoritos"),
             onTap: () {
               Navigator.pushNamed(context, Routes.favorites);
               //Navegar para outra página
             },
           ),
+          const Divider(color: Colors.white),
         ],
       ),
     );
