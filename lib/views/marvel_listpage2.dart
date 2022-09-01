@@ -50,16 +50,108 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
               ),
               carrouselSlider(provider),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                child:
-                    Text(StringConstants.recomendados, style: AppTextStyle.font22),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                child: Text(StringConstants.recomendados,
+                    style: AppTextStyle.font22),
               ),
-              listMovie(provider),
+              listMovieRecommended(provider),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text('Top 10', style: AppTextStyle.font22),
+              ),
+              listMovieTop10(context, provider)
             ],
           ),
         ),
       );
     });
+  }
+
+  Padding listMovieTop10(BuildContext context, MarvelController provider) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      child: Container(
+        height: MediaQuery.of(context).size.height / 3,
+        width: double.infinity,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: provider.lista.length,
+            itemBuilder: (context, index) {
+              var list = provider.lista.sublist(9)[index];
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    height: MediaQuery.of(context).size.height / 3.7,
+                    width: MediaQuery.of(context).size.width / 2 - 9,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                      data: list,
+                                    )));
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image(
+                          image: CachedNetworkImageProvider(
+                            list.coverUrl.toString(),
+                            maxHeight: 260,
+                            maxWidth: 200,
+                          ),
+                          loadingBuilder: (context, child, progress) {
+                            if (progress == null) {
+                              return child;
+                            }
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    child: Text(
+                      list.title.toString(),
+                      style: AppTextStyle.font12Bold,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 25,
+                          width: 50,
+                          child: Image.asset(ImageConstants.imageAsset),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        '8.5',
+                        style: AppTextStyle.font15,
+                      ),
+                    ],
+                  ),
+                ],
+              );
+            }),
+      ),
+    );
   }
 
   AppBar buildAppBar(BuildContext context) {
@@ -85,11 +177,11 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  Padding listMovie(MarvelController provider) {
+  Padding listMovieRecommended(MarvelController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Container(
-        height: MediaQuery.of(context).size.height / 2.7,
+        height: MediaQuery.of(context).size.height / 3,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -179,7 +271,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
             itemCount: provider.lista.length,
             options: CarouselOptions(
               enlargeCenterPage: true,
-              initialPage: 5,
+              initialPage: 6,
               height: MediaQuery.of(context).size.height / 3.5,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
