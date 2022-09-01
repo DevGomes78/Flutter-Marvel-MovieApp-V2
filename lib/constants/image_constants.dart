@@ -1,5 +1,5 @@
 class ImageConstants{
-  static const imageAsset = 'images/5stars.png';
+  static const imageAsset5Stars = 'images/5stars.png';
   static const imageAssetEstrela = 'images/estrela.png';
   static const imageAssetcrisEvans = 'images/Cris evans.jpg';
   static const imageAssetscarlet = 'images/Scarlet johanssonr.jpg';

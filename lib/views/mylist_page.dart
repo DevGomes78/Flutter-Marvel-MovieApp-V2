@@ -94,7 +94,7 @@ class _MylistPageState extends State<MylistPage> {
                           alignment: Alignment.center,
                           height: 25,
                           width: 50,
-                          child: Image.asset(ImageConstants.imageAsset),
+                          child: Image.asset(ImageConstants.imageAsset5Stars),
                         ),
                       ),
                       const SizedBox(width: 10),

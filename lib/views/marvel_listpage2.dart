@@ -85,7 +85,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: provider.lista.length,
+            itemCount: provider.lista.length??0,
             itemBuilder: (context, index) {
               var list = provider.lista.sublist(9)[index];
               return Column(
@@ -146,7 +146,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                           alignment: Alignment.center,
                           height: 25,
                           width: 50,
-                          child: Image.asset(ImageConstants.imageAsset),
+                          child: Image.asset(ImageConstants.imageAsset5Stars),
                         ),
                       ),
                       const SizedBox(width: 10),
@@ -254,7 +254,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                           alignment: Alignment.center,
                           height: 25,
                           width: 50,
-                          child: Image.asset(ImageConstants.imageAsset),
+                          child: Image.asset(ImageConstants.imageAsset5Stars),
                         ),
                       ),
                       const SizedBox(width: 10),

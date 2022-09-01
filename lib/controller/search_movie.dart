@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvel/components/text_style.dart';
 import 'package:marvel/constants/string_constants.dart';
 import 'package:marvel/controller/marvel_controller.dart';
 import 'package:marvel/views/details_page.dart';
@@ -66,13 +67,10 @@ class SearchMovie extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text(
         StringConstants.searchMovies,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w400,
-        ),
+        style: AppTextStyle.font22,
       ),
     );
   }
