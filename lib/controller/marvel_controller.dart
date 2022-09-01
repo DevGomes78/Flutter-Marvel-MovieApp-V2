@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:marvel/constants/error_constants.dart';
 import 'package:marvel/constants/service_constants.dart';
 import '../data/models/marvel_models.dart';
 
@@ -26,7 +27,7 @@ class MarvelController extends ChangeNotifier {
         return lista;
       }
     } catch (e) {
-      print('Erro ao acessar a Pagina: $e');
+      print('${ErrorConstants.erroAoAcessarPagina}$e');
       return [];
     }
     return[];

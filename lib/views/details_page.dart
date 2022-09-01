@@ -261,7 +261,7 @@ class _DetailsPageState extends State<DetailsPage> {
         forceWebView: true,
       );
     } else {
-      throw ErrorConstants.VideoNaoDisponivel + url;
+      throw ErrorConstants.videoNaoDisponivel + url;
     }
   }
 }

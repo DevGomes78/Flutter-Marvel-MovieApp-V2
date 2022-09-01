@@ -1,3 +1,4 @@
 class ErrorConstants{
-  static const VideoNaoDisponivel = 'Video nao Disponivel';
+  static const videoNaoDisponivel = 'Video nao Disponivel';
+  static const erroAoAcessarPagina = 'Erro ao acessar a Pagina';
 }
