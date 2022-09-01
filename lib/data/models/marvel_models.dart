@@ -20,7 +20,7 @@ class MarvelModels extends ChangeNotifier {
   }
 }
 
-class Data extends ChangeNotifier{
+class Data extends ChangeNotifier {
   int? id;
   String? title;
   String? releaseDate;
@@ -71,4 +71,3 @@ class Data extends ChangeNotifier{
     imdbId = json['imdb_id'];
   }
 }
-
