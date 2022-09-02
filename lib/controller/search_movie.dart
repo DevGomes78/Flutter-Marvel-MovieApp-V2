@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marvel/components/text_style.dart';
+import 'package:marvel/components/text_style_widget.dart';
 import 'package:marvel/constants/string_constants.dart';
 import 'package:marvel/controller/marvel_controller.dart';
 import 'package:marvel/views/details_page.dart';

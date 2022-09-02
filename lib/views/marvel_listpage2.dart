@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:marvel/components/drawer.dart';
+import 'package:marvel/components/drawer_widget.dart';
 import 'package:provider/provider.dart';
-import '../components/text_style.dart';
+import '../components/text_style_widget.dart';
 import '../constants/string_constants.dart';
 import '../controller/marvel_controller.dart';
 import '../controller/search_movie.dart';
@@ -37,7 +37,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     return LayoutBuilder(builder: (context, constrains) {
       return Scaffold(
         appBar: buildAppBar(context),
-        drawer: const drawer(),
+        drawer: const DrawerWidget(),
         body: provider.lista.isEmpty
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(

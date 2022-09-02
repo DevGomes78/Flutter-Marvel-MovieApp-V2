@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:marvel/components/text_style.dart';
+import 'package:marvel/components/text_style_widget.dart';
 import '../constants/image_constants.dart';
-class StarList extends StatelessWidget {
-  const StarList({
+class StarListWidget extends StatelessWidget {
+  const StarListWidget({
     Key? key,
   }) : super(key: key);
 

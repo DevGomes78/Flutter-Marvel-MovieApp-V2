@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marvel/components/text_style.dart';
+import 'package:marvel/components/text_style_widget.dart';
 import 'package:marvel/controller/mylist_controller.dart';
 import 'package:provider/provider.dart';
 import '../constants/image_constants.dart';

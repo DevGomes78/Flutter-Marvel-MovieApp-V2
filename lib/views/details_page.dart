@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marvel/components/text_style.dart';
+import 'package:marvel/components/text_style_widget.dart';
 import 'package:marvel/constants/string_constants.dart';
 import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
-import '../components/star_list.dart';
+import '../components/star_list_widget.dart';
 import '../constants/error_constants.dart';
 import '../constants/image_constants.dart';
 import '../controller/mylist_controller.dart';
@@ -61,7 +61,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 style: AppTextStyle.font22,
               ),
             ),
-            const StarList(),
+            const StarListWidget(),
           ],
         ),
       ),
