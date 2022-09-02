@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvel/constants/string_constants.dart';
 
 import '../utils/routes.dart';
 
@@ -23,28 +24,25 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person,color: Colors.blueAccent,),
-            title: const Text("Minha conta"),
+            title: const Text(StringConstants.minhaConta),
             onTap: () {
               Navigator.pop(context);
-              //Navegar para outra página
             },
           ),
           const Divider(color: Colors.white),
           ListTile(
             leading: const Icon(Icons.add),
-            title: const Text("Minha lista"),
+            title: const Text(StringConstants.minhaLista),
             onTap: () {
               Navigator.pushNamed(context,Routes.myListPage);
-              //Navegar para outra página
             },
           ),
           const Divider(color: Colors.white),
           ListTile(
             leading: const Icon(Icons.favorite,color: Colors.red,),
-            title: const Text("Favoritos"),
+            title: const Text(StringConstants.favorites),
             onTap: () {
               Navigator.pushNamed(context, Routes.favorites);
-              //Navegar para outra página
             },
           ),
           const Divider(color: Colors.white),
