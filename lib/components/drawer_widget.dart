@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/constants/string_constants.dart';
-
 import '../utils/routes.dart';
 
 class DrawerWidget extends StatelessWidget {
