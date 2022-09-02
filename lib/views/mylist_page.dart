@@ -61,7 +61,7 @@ class _MylistPageState extends State<MylistPage> {
               var lista = provider.myList[index];
               return Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: constraints.maxHeight / 2.8,
                     width: constraints.maxWidth / 2 - 8,
                     child: ClipRRect(

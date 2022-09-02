@@ -53,7 +53,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
   ) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Container(
+      child: SizedBox(
         height: constraints.maxHeight / 2,
         width: double.infinity,
         child: ListView.builder(
@@ -63,7 +63,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
               var lista = provider.listFavorites[index];
               return Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: constraints.maxHeight / 2.8,
                     width: constraints.maxWidth / 2 - 8,
                     child: ClipRRect(

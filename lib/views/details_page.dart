@@ -146,7 +146,7 @@ class _DetailsPageState extends State<DetailsPage> {
   Stack cardMovie() {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height / 2,
           width: double.infinity,
           child: ClipRRect(
