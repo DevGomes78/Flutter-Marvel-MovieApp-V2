@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:marvel/components/drawer.dart';
 import 'package:provider/provider.dart';
 import '../components/text_style.dart';
-import '../constants/image_constants.dart';
 import '../constants/string_constants.dart';
 import '../controller/marvel_controller.dart';
 import '../controller/search_movie.dart';
+import '../data/models/marvel_models.dart';
 import 'details_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -20,9 +20,9 @@ class MarvelListPage2 extends StatefulWidget {
 
 class _MarvelListPage2State extends State<MarvelListPage2> {
   int activeIndex = 0;
+  List<Data> lista=[];
 
   late final MarvelController controller;
-  var lista;
 
   @override
   void initState() {
@@ -61,7 +61,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   Padding textTop10() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      child: Text('Top 10', style: AppTextStyle.font22),
+      child: Text(StringConstants.top10, style: AppTextStyle.font22),
     );
   }
 
@@ -82,7 +82,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   Padding listMovieTop10(BuildContext context, MarvelController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height / 3,
         width: double.infinity,
         child: ListView.builder(
@@ -172,7 +172,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   Padding listMovieRecommended(MarvelController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height / 3.4,
         width: double.infinity,
         child: ListView.builder(

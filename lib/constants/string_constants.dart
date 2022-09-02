@@ -17,5 +17,6 @@ class StringConstants{
   static const adicionadoAMinhaLista = 'Adicionado a minha lista!';
   static const adicionadoaosfavoritos ='Adicionado aos Favoritos!';
   static const removidoDosFavoritos ='removido dos Favoritos!';
+  static const top10 = 'Top 10';
 
 }
