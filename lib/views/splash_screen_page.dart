@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../constants/image_constants.dart';
 import '../utils/routes.dart';
-import 'home_page.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -24,9 +24,9 @@ class _SplashState extends State<Splash> {
         body: Stack(
       children: [
         Center(
-          child: Container(
+          child: SizedBox(
             height: 350,
-            child: Image.asset('images/mv-gif.webp'),
+            child: Image.asset(ImageConstants.imageSplashScreen),
           ),
         ),
       ],

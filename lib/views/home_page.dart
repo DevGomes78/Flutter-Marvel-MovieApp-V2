@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvel/constants/string_constants.dart';
 import 'favorites_page.dart';
 import 'marvel_listpage2.dart';
 import 'mylist_page.dart';
@@ -33,11 +34,11 @@ class _HomePageState extends State<HomePage> {
         currentIndex: currentIndex,
         onTap: onTabTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ("home")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: (StringConstants.home)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.library_add_sharp), label: ("Minha lista")),
+              icon: Icon(Icons.library_add_sharp), label: (StringConstants.minhaLista)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: ("Favoritos")),
+              icon: Icon(Icons.favorite), label: (StringConstants.favorites)),
         ],
       ),
     );

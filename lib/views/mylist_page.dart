@@ -51,7 +51,7 @@ class _MylistPageState extends State<MylistPage> {
   Padding myListMovie(BoxConstraints constraints, MyListController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Container(
+      child: SizedBox(
         height: constraints.maxHeight / 2.2,
         width: double.infinity,
         child: ListView.builder(

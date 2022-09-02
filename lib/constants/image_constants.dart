@@ -5,4 +5,5 @@ class ImageConstants{
   static const imageAssetscarlet = 'images/Scarlet johanssonr.jpg';
   static const myListPageImageCard = 'images/studiosmarvel.jpg';
   static const favoritesCardMovie = 'images/vingadores2.jpg';
+  static const imageSplashScreen = 'images/mv-gif.webp';
 }
