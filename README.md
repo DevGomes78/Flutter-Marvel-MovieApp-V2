@@ -2,7 +2,7 @@
 
  
  O objetivo desse desafio foi criar um App utilizando
-uma Api e mostrar os filmes do catalogo Marvel, e clicando em cada filme da lista ,poderá reproduzir o trailer do filme,mostrar os detalhes como duração,ano de lançamento,pontuação. é possivel adicionar ou remover em uma nova lista de favoritos ou em minha lista para assistir mais tarde...criado uma Search Bar para buscas dos filmes, utilizado package provider para gerenciar o estado da aplicação,com padrao de arquitetura MVC.
+uma Api e mostrar os filmes do catalogo Marvel, e clicando em cada filme da lista ,poderá reproduzir o trailer do filme,mostrar os detalhes como duração,ano de lançamento e pontuação.também é possivel adicionar um filme ou remover em uma nova lista de favoritos ou em minha lista para assistir mais tarde...criado uma Search Bar para buscas dos filmes, para gerenciar o estado da aplicação,usei o package Provider e utilizado padrao de arquitetura MVC.
 
 ## Dependencias Utilizadas:
 + http:
