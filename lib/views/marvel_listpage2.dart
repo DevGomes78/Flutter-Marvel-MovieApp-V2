@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../components/text_style_widget.dart';
 import '../constants/string_constants.dart';
 import '../controller/marvel_controller.dart';
-import '../controller/search_movie.dart';
+import '../components/search_movie.dart';
 import '../data/models/marvel_models.dart';
 import 'details_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
