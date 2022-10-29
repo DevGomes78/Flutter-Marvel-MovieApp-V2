@@ -36,7 +36,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     MarvelController provider = Provider.of<MarvelController>(context);
     return LayoutBuilder(builder: (context, constrains) {
       return Scaffold(
-        appBar: buildAppBar(context),
+        appBar: _buildAppBar(context),
         drawer: const DrawerWidget(),
         body: provider.lista.isEmpty
             ? const Center(child: CircularProgressIndicator())
@@ -45,12 +45,12 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 15),
-                    textAssistaAgora(),
-                    carrouselSlider(provider),
-                    textRecomended(),
-                    listMovieRecommended(provider),
-                    textTop10(),
-                    listMovieTop10(context, provider)
+                    _textAssistaAgora(),
+                    _carrouselSlider(provider),
+                    _textRecomended(),
+                    _listMovieRecommended(provider),
+                    _textTop10(),
+                    _listMovieTop10(context, provider)
                   ],
                 ),
               ),
@@ -58,28 +58,28 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     });
   }
 
-  Padding textTop10() {
+  _textTop10() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       child: Text(StringConstants.top10, style: AppTextStyle.font22),
     );
   }
 
-  Padding textRecomended() {
+ _textRecomended() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
       child: Text(StringConstants.recomendados, style: AppTextStyle.font22),
     );
   }
 
-  Padding textAssistaAgora() {
+  _textAssistaAgora() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       child: Text(StringConstants.assistaAgora, style: AppTextStyle.font22),
     );
   }
 
-  Padding listMovieTop10(BuildContext context, MarvelController provider) {
+  _listMovieTop10(BuildContext context, MarvelController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: SizedBox(
@@ -146,7 +146,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  AppBar buildAppBar(BuildContext context) {
+  _buildAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
       // backgroundColor: Colors.transparent,
@@ -169,7 +169,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  Padding listMovieRecommended(MarvelController provider) {
+  _listMovieRecommended(MarvelController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: SizedBox(
@@ -237,7 +237,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  Column carrouselSlider(MarvelController provider) {
+  _carrouselSlider(MarvelController provider) {
     return Column(
       children: [
         Container(
