@@ -10,7 +10,7 @@ class StarListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-      child: Container(
+      child: SizedBox(
         height: 150,
         width: double.infinity,
         child: ListView(
@@ -22,7 +22,7 @@ class StarListWidget extends StatelessWidget {
                   backgroundImage: AssetImage(ImageConstants.imageAssetcrisEvans),
                   radius: 30,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
@@ -41,7 +41,7 @@ class StarListWidget extends StatelessWidget {
                   backgroundImage: AssetImage(ImageConstants.imageAssetscarlet),
                   radius: 30,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
@@ -79,7 +79,7 @@ class StarListWidget extends StatelessWidget {
                   backgroundImage: AssetImage('images/robert downey jr.jpg'),
                   radius: 30,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
@@ -98,7 +98,7 @@ class StarListWidget extends StatelessWidget {
                   backgroundImage: AssetImage('images/mark huffalo.jpg'),
                   radius: 30,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
