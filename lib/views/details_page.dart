@@ -39,28 +39,13 @@ class _DetailsPageState extends State<DetailsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 10),
-            cardMovie(),
+            _cardMovie(),
             const SizedBox(height: 20),
-            infoDetailsMovie(),
+            _infoDetailsMovie(),
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                StringConstants.sumary,
-                style: AppTextStyle.font25Bold,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-              child: Text(widget.data!.overview.toString()),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                StringConstants.atoresPrincipais,
-                style: AppTextStyle.font22,
-              ),
-            ),
+            _sumaryText(),
+            _overwiewText(),
+            _atoresText(),
             const StarListWidget(),
           ],
         ),
@@ -68,7 +53,34 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
-  Row infoDetailsMovie() {
+  _atoresText() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Text(
+        StringConstants.atoresPrincipais,
+        style: AppTextStyle.font22,
+      ),
+    );
+  }
+
+  _overwiewText() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Text(widget.data!.overview.toString()),
+    );
+  }
+
+  _sumaryText() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Text(
+        StringConstants.sumary,
+        style: AppTextStyle.font25Bold,
+      ),
+    );
+  }
+
+  _infoDetailsMovie() {
     return Row(
       children: [
         const SizedBox(width: 20),
@@ -133,7 +145,7 @@ class _DetailsPageState extends State<DetailsPage> {
               ),
               const SizedBox(width: 5),
               Text(
-               StringConstants.minhaLista,
+                StringConstants.minhaLista,
                 style: AppTextStyle.font14,
               ),
             ],
@@ -143,7 +155,7 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
-  Stack cardMovie() {
+  _cardMovie() {
     return Stack(
       children: [
         SizedBox(
@@ -194,7 +206,7 @@ class _DetailsPageState extends State<DetailsPage> {
           left: 170,
           top: 100,
           child: InkWell(
-            onTap: callVideoPlayer,
+            onTap: _callVideoPlayer,
             child: const Icon(
               Icons.play_circle_outline,
               color: Colors.yellow,
@@ -212,7 +224,7 @@ class _DetailsPageState extends State<DetailsPage> {
               builder: (context, provider, child) => IconButton(
                 onPressed: () {
                   provider.toogleFavorite();
-                  favoritesController(provider, context);
+                  _favoritesController(provider, context);
                 },
                 icon: Icon(
                   provider.listFavorites.contains(widget.data)
@@ -229,11 +241,11 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
-  void favoritesController(Favorites provider, BuildContext context) {
+  _favoritesController(Favorites provider, BuildContext context) {
     if (!provider.listFavorites.contains(widget.data)) {
       provider.listFavorites.add(widget.data!);
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text(StringConstants.adicionadoaosfavoritos)));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(StringConstants.adicionadoaosfavoritos)));
     } else {
       provider.listFavorites.remove(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -252,7 +264,7 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
-  void callVideoPlayer() async {
+  _callVideoPlayer() async {
     final url = widget.data!.trailerUrl.toString();
     if (await launch(url)) {
       await launch(
