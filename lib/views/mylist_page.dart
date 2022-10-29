@@ -26,11 +26,11 @@ class _MylistPageState extends State<MylistPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    cardMyListMovie(constraints, context),
+                    _cardMyListMovie(constraints, context),
                     const SizedBox(height: 15),
-                    myListtText(),
+                    _myListtText(),
                     const SizedBox(height: 10),
-                    myListMovie(constraints, provider),
+                    _myListMovie(constraints, provider),
                   ],
                 ),
               ),
@@ -38,7 +38,7 @@ class _MylistPageState extends State<MylistPage> {
     );
   }
 
-  Padding myListtText() {
+  _myListtText() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Text(
@@ -48,7 +48,7 @@ class _MylistPageState extends State<MylistPage> {
     );
   }
 
-  Padding myListMovie(BoxConstraints constraints, MyListController provider) {
+  _myListMovie(BoxConstraints constraints, MyListController provider) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: SizedBox(
@@ -110,7 +110,7 @@ class _MylistPageState extends State<MylistPage> {
     );
   }
 
-  Stack cardMyListMovie(BoxConstraints constraints, BuildContext context) {
+  _cardMyListMovie(BoxConstraints constraints, BuildContext context) {
     return Stack(
       children: [
         Container(
