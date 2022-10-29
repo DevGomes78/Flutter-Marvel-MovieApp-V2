@@ -39,28 +39,29 @@ class SearchMovie extends SearchDelegate {
             );
           } else {
             return ListView.builder(
-                itemCount: snapshot.data!.length,
-                itemBuilder: (context, index) {
-                  var lista = snapshot.data![index];
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        lista.coverUrl.toString(),
-                      ),
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                var lista = snapshot.data![index];
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      lista.coverUrl.toString(),
                     ),
-                    title: Text(
-                      lista.title.toString(),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailsPage(
-                                    data: lista,
-                                  )));
-                    },
-                  );
-                });
+                  ),
+                  title: Text(
+                    lista.title.toString(),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                  data: lista,
+                                )));
+                  },
+                );
+              },
+            );
           }
         });
   }
