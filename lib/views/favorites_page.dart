@@ -25,11 +25,11 @@ class _FavoritesPageState extends State<FavoritesPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    cardMovie(constraints, context),
+                    _cardMovie(constraints, context),
                     const SizedBox(height: 20),
-                    favoritesText(),
+                    _favoritesText(),
                     const SizedBox(height: 10),
-                    favoritesListMovie(constraints, provider),
+                    _favoritesListMovie(constraints, provider),
                   ],
                 ),
               ),
@@ -37,7 +37,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     );
   }
 
-  Padding favoritesText() {
+  _favoritesText() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Text(
@@ -47,7 +47,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     );
   }
 
-  Padding favoritesListMovie(
+  _favoritesListMovie(
     BoxConstraints constraints,
     Favorites provider,
   ) {
@@ -112,7 +112,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     );
   }
 
-  Stack cardMovie(BoxConstraints constraints, BuildContext context) {
+  _cardMovie(BoxConstraints constraints, BuildContext context) {
     return Stack(
       children: [
         Container(
