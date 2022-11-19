@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         useInheritedMediaQuery: true,
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
         theme: ThemeData(
           brightness: Brightness.dark,
         ),
