@@ -43,11 +43,11 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 15),
-                    _assistaAgora(),
+                    _watchNowText(),
                     const CarrouselList(),
-                    _recomended(),
+                    _recomendedText(),
                     const RecomendedList(),
-                    _top10(),
+                    _top10Text(),
                     const Top10List(),
                   ],
                 ),
@@ -56,21 +56,21 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     });
   }
 
-  _top10() {
+  _top10Text() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Text(StringConstants.top10, style: AppTextStyle.font22),
     );
   }
 
-  _recomended() {
+  _recomendedText() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       child: Text(StringConstants.recomendados, style: AppTextStyle.font22),
     );
   }
 
-  _assistaAgora() {
+  _watchNowText() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       child: Text(StringConstants.assistaAgora, style: AppTextStyle.font22),
