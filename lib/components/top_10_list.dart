@@ -28,7 +28,7 @@ class _Top10ListState extends State<Top10List> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
       child: SizedBox(
         height: MediaQuery.of(context).size.height / 3,
         width: double.infinity,
@@ -42,7 +42,7 @@ class _Top10ListState extends State<Top10List> {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    height: MediaQuery.of(context).size.height / 3.7,
+                    height: MediaQuery.of(context).size.height / 3.8,
                     width: MediaQuery.of(context).size.width / 2 - 9,
                     child: InkWell(
                       onTap: () {
@@ -80,9 +80,14 @@ class _Top10ListState extends State<Top10List> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
                     ),
-                    child: Text(
-                      list.title.toString(),
-                      style: AppTextStyle.font12Bold,
+                    child: Container(
+                      alignment: Alignment.topCenter,
+                      height: 40,
+                      width: 175,
+                      child: Text(
+                        list.title.toString(),
+                        style: AppTextStyle.font14,
+                      ),
                     ),
                   ),
                 ],
