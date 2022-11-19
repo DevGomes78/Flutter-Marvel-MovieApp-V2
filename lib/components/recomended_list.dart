@@ -14,9 +14,9 @@ class RecomendedList extends StatefulWidget {
 }
 
 class _RecomendedListState extends State<RecomendedList> {
-  List<Data> lista=[];
+  List<Data> lista = [];
 
-   MarvelController controller = MarvelController();
+  MarvelController controller = MarvelController();
 
   @override
   void initState() {
@@ -24,12 +24,13 @@ class _RecomendedListState extends State<RecomendedList> {
     controller.getData(query: '');
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height / 3.4,
+        height: MediaQuery.of(context).size.height / 3.1,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -48,13 +49,13 @@ class _RecomendedListState extends State<RecomendedList> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => DetailsPage(
-                                  data: controller.lista[index],
-                                )));
+                                      data: controller.lista[index],
+                                    )));
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Hero(
-                          tag:controller.lista[index].coverUrl.toString(),
+                          tag: controller.lista[index].coverUrl.toString(),
                           child: Image(
                             image: CachedNetworkImageProvider(
                               controller.lista[index].coverUrl.toString(),
@@ -81,9 +82,17 @@ class _RecomendedListState extends State<RecomendedList> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
                     ),
-                    child: Text(
-                      controller.lista[index].title.toString(),
-                      style: AppTextStyle.font12Bold,
+                    child: Container(
+                      alignment: Alignment.topCenter,
+                      height: 40,
+                      width: 175,
+                      child:
+                          Text(
+                            controller.lista[index].title.toString(),
+                            style: AppTextStyle.font14,
+                          ),
+
+
                     ),
                   ),
                 ],
