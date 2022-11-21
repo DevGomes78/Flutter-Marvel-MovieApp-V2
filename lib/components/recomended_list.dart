@@ -31,7 +31,7 @@ class _RecomendedListState extends State<RecomendedList> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height / 2.5,
+        height: MediaQuery.of(context).size.height / 2.7,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
