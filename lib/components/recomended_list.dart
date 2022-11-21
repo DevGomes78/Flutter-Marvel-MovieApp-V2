@@ -15,6 +15,7 @@ class RecomendedList extends StatefulWidget {
 
 class _RecomendedListState extends State<RecomendedList> {
   List<Data> lista = [];
+  var str;
 
   MarvelController controller = MarvelController();
 
@@ -30,12 +31,17 @@ class _RecomendedListState extends State<RecomendedList> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height / 3.1,
+        height: MediaQuery.of(context).size.height / 2.5,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: controller.lista.length,
             itemBuilder: (context, index) {
+              str = controller.lista[index].title.toString();
+             while (str.trim().length > 22){
+               str = str.toString().substring(0, 22);
+             }
+
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -83,18 +89,49 @@ class _RecomendedListState extends State<RecomendedList> {
                       horizontal: 10,
                     ),
                     child: Container(
-                      alignment: Alignment.topCenter,
-                      height: 40,
+                      alignment: Alignment.topLeft,
+                      height: 20,
                       width: 175,
-                      child:
-                          Text(
-                            controller.lista[index].title.toString(),
-                            style: AppTextStyle.font14,
-                          ),
-
-
+                      child: Text(
+                        str,
+                        style: AppTextStyle.font14,
+                      ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      height: 20,
+                      width: 175,
+                      child: Text(
+                       'Action Adventure',
+                        style: TextStyle(fontSize: 12,color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      height: 40,
+                      width: 175,
+                      child: Row(
+                        children: const [
+                          Icon(Icons.star,color: Colors.amber,size: 20,),
+                          Icon(Icons.star,color: Colors.amber,size: 20,),
+                          Icon(Icons.star,color: Colors.amber,size: 20,),
+                          Icon(Icons.star,color: Colors.amber,size: 20,),
+                          Icon(Icons.star,color: Colors.amber,size: 20,),
+                        ],
+                      )
+                    ),
+                  ),
+
                 ],
               );
             }),
