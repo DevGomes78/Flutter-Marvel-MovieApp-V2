@@ -85,12 +85,12 @@ class _CarrouselListState extends State<CarrouselList> {
     );
   }
 
-  buildIndicator(MarvelController provider) => AnimatedSmoothIndicator(
+  buildIndicator(controller) => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
         count: controller.lista.length,
         effect: const ScrollingDotsEffect(
-          dotHeight: 18,
-          dotWidth: 18,
+          dotHeight: 14,
+          dotWidth: 14,
           activeDotColor: Colors.white,
           dotColor: Colors.grey,
         ),
