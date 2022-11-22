@@ -59,22 +59,22 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   _top10Text() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Text(StringConstants.top10, style: AppTextStyle.font22),
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+      child: Text(StringConstants.top10, style: AppTextStyle.font18),
     );
   }
 
   _recomendedText() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      child: Text(StringConstants.recomendados, style: AppTextStyle.font22),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      child: Text(StringConstants.recomendados, style: AppTextStyle.font18),
     );
   }
 
   _watchNowText() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      child: Text(StringConstants.assistaAgora, style: AppTextStyle.font22),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      child: Text(StringConstants.assistaAgora, style: AppTextStyle.font18),
     );
   }
 
