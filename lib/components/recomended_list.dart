@@ -38,8 +38,8 @@ class _RecomendedListState extends State<RecomendedList> {
             itemCount: controller.lista.length,
             itemBuilder: (context, index) {
               str = controller.lista[index].title.toString();
-             while (str.trim().length > 22){
-               str = str.toString().substring(0, 22);
+             while (str.trim().length > 23){
+               str = str.toString().substring(0, 23);
              }
 
               return Column(
