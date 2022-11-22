@@ -34,24 +34,25 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     MarvelController provider = Provider.of<MarvelController>(context);
     return LayoutBuilder(builder: (context, constrains) {
       return Scaffold(
+        backgroundColor: Colors.black12,
         appBar: _buildAppBar(context),
         drawer: const DrawerWidget(),
         body: provider.lista.isEmpty
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 15),
-                    _watchNowText(),
-                    const CarrouselList(),
-                    _recomendedText(),
-                    const RecomendedList(),
-                    _top10Text(),
-                    const Top10List(),
-                  ],
-                ),
-              ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 15),
+              _watchNowText(),
+              const CarrouselList(),
+              _recomendedText(),
+              const RecomendedList(),
+              _top10Text(),
+              const Top10List(),
+            ],
+          ),
+        ),
       );
     });
   }
@@ -79,23 +80,33 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   _buildAppBar(BuildContext context) {
     return AppBar(
-      elevation: 0,
-      title: Text(
-        StringConstants.marvelApp,
-        style: AppTextStyle.font22,
-      ),
-      centerTitle: true,
-      actions: [
-        IconButton(
-          onPressed: () {
-            showSearch(
-              context: context,
-              delegate: SearchMovie(),
-            );
-          },
-          icon: const Icon(Icons.search),
+      elevation: 5,
+      title: Container(
+        width: double.infinity,
+        height: 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10), color: Colors.black12,
         ),
-      ],
+        child:  TextField(
+          decoration:  InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10)
+            ),
+            suffixIcon: IconButton(
+              onPressed: () {
+                showSearch(
+                  context: context,
+                  delegate: SearchMovie(),
+                );
+              },
+              icon: const Icon(Icons.search),
+            ),
+          ),
+        ),
+      ),
+      backgroundColor: Colors.black12,
+      centerTitle: true,
+
     );
   }
 }
