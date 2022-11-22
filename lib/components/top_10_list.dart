@@ -16,6 +16,7 @@ class Top10List extends StatefulWidget {
 
 class _Top10ListState extends State<Top10List> {
   List<Data> lista = [];
+  var str;
 
   MarvelController controller=MarvelController();
 
@@ -28,21 +29,26 @@ class _Top10ListState extends State<Top10List> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height / 3,
+        height: MediaQuery.of(context).size.height / 2.7,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: controller.lista.length,
             itemBuilder: (context, index) {
               var list = controller.lista.sublist(9)[index];
+              str = controller.lista[index].title.toString();
+              while (str.trim().length > 23){
+                str = str.toString().substring(0, 23);
+              }
+
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    height: MediaQuery.of(context).size.height / 3.8,
+                    height: MediaQuery.of(context).size.height / 3.7,
                     width: MediaQuery.of(context).size.width / 2 - 9,
                     child: InkWell(
                       onTap: () {
@@ -55,23 +61,26 @@ class _Top10ListState extends State<Top10List> {
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image(
-                          image: CachedNetworkImageProvider(
-                            list.coverUrl.toString(),
-                            maxHeight: 260,
-                            maxWidth: 200,
+                        child: Hero(
+                          tag: list.coverUrl.toString(),
+                          child: Image(
+                            image: CachedNetworkImageProvider(
+                              list.coverUrl.toString(),
+                              maxHeight: 260,
+                              maxWidth: 200,
+                            ),
+                            loadingBuilder: (context, child, progress) {
+                              if (progress == null) {
+                                return child;
+                              }
+                              return const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.grey,
+                                ),
+                              );
+                            },
+                            fit: BoxFit.fill,
                           ),
-                          loadingBuilder: (context, child, progress) {
-                            if (progress == null) {
-                              return child;
-                            }
-                            return const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.grey,
-                              ),
-                            );
-                          },
-                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
@@ -81,15 +90,49 @@ class _Top10ListState extends State<Top10List> {
                       horizontal: 10,
                     ),
                     child: Container(
-                      alignment: Alignment.topCenter,
-                      height: 40,
+                      alignment: Alignment.topLeft,
+                      height: 20,
                       width: 175,
                       child: Text(
-                        list.title.toString(),
+                        str,
                         style: AppTextStyle.font14,
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      height: 20,
+                      width: 175,
+                      child: Text(
+                        'Action Adventure',
+                        style: TextStyle(fontSize: 12,color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    child: Container(
+                        alignment: Alignment.topLeft,
+                        height: 40,
+                        width: 175,
+                        child: Row(
+                          children: const [
+                            Icon(Icons.star,color: Colors.amber,size: 20,),
+                            Icon(Icons.star,color: Colors.amber,size: 20,),
+                            Icon(Icons.star,color: Colors.amber,size: 20,),
+                            Icon(Icons.star,color: Colors.amber,size: 20,),
+                            Icon(Icons.star,color: Colors.amber,size: 20,),
+                          ],
+                        )
+                    ),
+                  ),
+
                 ],
               );
             }),
