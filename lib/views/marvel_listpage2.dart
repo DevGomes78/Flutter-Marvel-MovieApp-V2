@@ -80,7 +80,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
 
   _buildAppBar(BuildContext context) {
     return AppBar(
-      elevation: 5,
+      elevation: 0,
       title: Container(
         width: double.infinity,
         height: 40,
@@ -89,6 +89,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
         ),
         child:  TextField(
           decoration:  InputDecoration(
+            labelText: 'Pesquisar Filmes',
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10)
             ),
