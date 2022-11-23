@@ -9,7 +9,7 @@ class StringConstants{
   static const watchTheTrailer = 'Assista o trailer ';
   static const favorites = 'Favoritos';
   static const Myfavorites = 'Meus Favoritos';
-  static const assistaAgora = 'Assista agora';
+  static const assistaAgora = 'Assista Agora';
   static const atoresPrincipais ='Atores principais';
   static const minhaLista ='Minha lista';
   static const minhaConta ='Minha conta';
