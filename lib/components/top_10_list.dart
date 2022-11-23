@@ -18,7 +18,7 @@ class _Top10ListState extends State<Top10List> {
   List<Data> lista = [];
   var str;
 
-  MarvelController controller=MarvelController();
+  MarvelController controller = MarvelController();
 
   @override
   void initState() {
@@ -26,6 +26,7 @@ class _Top10ListState extends State<Top10List> {
     controller.getData(query: '');
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,7 +40,7 @@ class _Top10ListState extends State<Top10List> {
             itemBuilder: (context, index) {
               var list = controller.lista.sublist(9)[index];
               str = controller.lista[index].title.toString();
-              while (str.trim().length > 23){
+              while (str.trim().length > 23) {
                 str = str.toString().substring(0, 23);
               }
 
@@ -56,8 +57,8 @@ class _Top10ListState extends State<Top10List> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => DetailsPage(
-                                  data: list,
-                                )));
+                                      data: list,
+                                    )));
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
@@ -109,7 +110,7 @@ class _Top10ListState extends State<Top10List> {
                       width: 175,
                       child: Text(
                         'Action Adventure',
-                        style: TextStyle(fontSize: 12,color: Colors.grey),
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                   ),
@@ -122,17 +123,39 @@ class _Top10ListState extends State<Top10List> {
                         height: 40,
                         width: 175,
                         child: Row(
-                          children: const [
-                            Icon(Icons.star,color: Colors.amber,size: 20,),
-                            Icon(Icons.star,color: Colors.amber,size: 20,),
-                            Icon(Icons.star,color: Colors.amber,size: 20,),
-                            Icon(Icons.star,color: Colors.amber,size: 20,),
-                            Icon(Icons.star,color: Colors.amber,size: 20,),
+                          children: [
+                            if (str == 'Iron Man' ||
+                                str == 'Thor' ||
+                                str == 'Spirder Man' ||
+                                str == 'Iron Man 2')
+                              const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
                           ],
-                        )
-                    ),
+                        )),
                   ),
-
                 ],
               );
             }),
