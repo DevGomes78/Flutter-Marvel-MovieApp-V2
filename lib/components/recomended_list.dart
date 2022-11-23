@@ -38,9 +38,9 @@ class _RecomendedListState extends State<RecomendedList> {
             itemCount: controller.lista.length,
             itemBuilder: (context, index) {
               str = controller.lista[index].title.toString();
-             while (str.trim().length > 23){
-               str = str.toString().substring(0, 23);
-             }
+              while (str.trim().length > 23) {
+                str = str.toString().substring(0, 23);
+              }
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,9 +106,9 @@ class _RecomendedListState extends State<RecomendedList> {
                       alignment: Alignment.topLeft,
                       height: 20,
                       width: 175,
-                      child: Text(
-                       'Action Adventure',
-                        style: TextStyle(fontSize: 12,color: Colors.grey),
+                      child: const Text(
+                        'Action Adventure',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                   ),
@@ -117,21 +117,44 @@ class _RecomendedListState extends State<RecomendedList> {
                       horizontal: 10,
                     ),
                     child: Container(
-                      alignment: Alignment.topLeft,
-                      height: 40,
-                      width: 175,
-                      child: Row(
-                        children: const [
-                          Icon(Icons.star,color: Colors.amber,size: 20,),
-                          Icon(Icons.star,color: Colors.amber,size: 20,),
-                          Icon(Icons.star,color: Colors.amber,size: 20,),
-                          Icon(Icons.star,color: Colors.amber,size: 20,),
-                          Icon(Icons.star,color: Colors.amber,size: 20,),
-                        ],
-                      )
-                    ),
-                  ),
+                        alignment: Alignment.topLeft,
+                        height: 40,
+                        width: 175,
+                        child: Row(
+                          children: [
+                            if (str == 'Iron Man' ||
+                                str == 'Thor' ||
+                                str == 'Spirder Man' ||
+                                str == 'Iron Man 2')
+                              const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 20,
+                            ),
+                            const Icon(
+                              Icons.star,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
 
+                          ],
+                        )),
+                  ),
                 ],
               );
             }),
