@@ -21,7 +21,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   List<Data> lista = [];
 
   late final MarvelController controller;
-  SearchMovie searchMovie= SearchMovie();
+  SearchMovie searchMovie = SearchMovie();
 
   @override
   void initState() {
@@ -35,38 +35,38 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     MarvelController provider = Provider.of<MarvelController>(context);
     return LayoutBuilder(builder: (context, constrains) {
       return Scaffold(
-        backgroundColor: Colors.black12,
+        backgroundColor: Colors.black54,
         appBar: _buildAppBar(context),
         drawer: const DrawerWidget(),
         body: provider.lista.isEmpty
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CarrouselList(),
-              _recomendedText(),
-              const RecomendedList(),
-              _top10Text(),
-              const Top10List(),
-            ],
-          ),
-        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CarrouselList(),
+                    _recomendedText(),
+                    const RecomendedList(),
+                    _top10Text(),
+                    const Top10List(),
+                  ],
+                ),
+              ),
       );
     });
   }
 
   _top10Text() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-      child: Text(StringConstants.top10, style: AppTextStyle.font18),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      child: Text(StringConstants.top10, style: AppTextStyle.font22Bold),
     );
   }
 
   _recomendedText() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-      child: Text(StringConstants.recomendados, style: AppTextStyle.font18),
+      child: Text(StringConstants.recomendados, style: AppTextStyle.font22Bold),
     );
   }
 
@@ -77,20 +77,19 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
         width: double.infinity,
         height: 40,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.black12,
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.black12,
         ),
-        child:  TextField(
-         onTap: (){
-           showSearch(
-             context: context,
-             delegate: SearchMovie(),
-           );
-         },
-          decoration:  InputDecoration(
+        child: TextField(
+          onTap: () {
+            showSearch(
+              context: context,
+              delegate: SearchMovie(),
+            );
+          },
+          decoration: InputDecoration(
             labelText: StringConstants.searchMovies,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30)
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             suffixIcon: IconButton(
               onPressed: () {
                 showSearch(
@@ -105,7 +104,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
       ),
       backgroundColor: Colors.black12,
       centerTitle: true,
-
     );
   }
 }
