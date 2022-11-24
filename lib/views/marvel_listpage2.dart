@@ -21,6 +21,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   List<Data> lista = [];
 
   late final MarvelController controller;
+  SearchMovie searchMovie= SearchMovie();
 
   @override
   void initState() {
@@ -43,8 +44,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 15),
-              _watchNowText(),
               const CarrouselList(),
               _recomendedText(),
               const RecomendedList(),
@@ -71,13 +70,6 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
     );
   }
 
-  _watchNowText() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-      child: Text(StringConstants.assistaAgora, style: AppTextStyle.font18),
-    );
-  }
-
   _buildAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
@@ -88,10 +80,16 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
           borderRadius: BorderRadius.circular(10), color: Colors.black12,
         ),
         child:  TextField(
+         onTap: (){
+           showSearch(
+             context: context,
+             delegate: SearchMovie(),
+           );
+         },
           decoration:  InputDecoration(
-            labelText: 'Pesquisar Filmes',
+            labelText: StringConstants.searchMovies,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10)
+              borderRadius: BorderRadius.circular(30)
             ),
             suffixIcon: IconButton(
               onPressed: () {
