@@ -18,6 +18,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     final provider = Provider.of<Favorites>(context);
 
     return Scaffold(
+      backgroundColor: Colors.black54,
       body: provider.listFavorites.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : LayoutBuilder(
