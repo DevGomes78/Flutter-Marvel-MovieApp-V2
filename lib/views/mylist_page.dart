@@ -19,6 +19,7 @@ class _MylistPageState extends State<MylistPage> {
   Widget build(BuildContext context) {
     final provider = Provider.of<MyListController>(context);
     return Scaffold(
+      backgroundColor: Colors.black54,
       body: provider.myList.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : LayoutBuilder(
