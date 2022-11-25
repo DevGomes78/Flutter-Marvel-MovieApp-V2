@@ -13,16 +13,17 @@ class DrawerWidget extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const UserAccountsDrawerHeader(
-            accountEmail: Text("amilson@mail.com"),
-            accountName: Text("Amilson"),
-            currentAccountPicture: CircleAvatar(
+          UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.black54),
+            accountEmail: const Text("amilson@mail.com"),
+            accountName: const Text("Amilson"),
+            currentAccountPicture: const CircleAvatar(
               child: Text("A"),
             ),
-
           ),
           ListTile(
-            leading: const Icon(Icons.person,color: Colors.blueAccent,),
+            leading: const Icon(Icons.person, color: Colors.white),
             title: const Text(StringConstants.minhaConta),
             onTap: () {
               Navigator.pop(context);
@@ -33,12 +34,12 @@ class DrawerWidget extends StatelessWidget {
             leading: const Icon(Icons.add),
             title: const Text(StringConstants.minhaLista),
             onTap: () {
-              Navigator.pushNamed(context,Routes.myListPage);
+              Navigator.pushNamed(context, Routes.myListPage);
             },
           ),
           const Divider(color: Colors.white),
           ListTile(
-            leading: const Icon(Icons.favorite,color: Colors.red,),
+            leading: const Icon(Icons.favorite, color: Colors.white),
             title: const Text(StringConstants.favorites),
             onTap: () {
               Navigator.pushNamed(context, Routes.favorites);
