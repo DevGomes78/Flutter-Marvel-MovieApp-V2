@@ -89,7 +89,7 @@ class _CarrouselListState extends State<CarrouselList> {
         activeIndex: activeIndex,
         count: controller.lista.length,
         effect: const ScrollingDotsEffect(
-          dotHeight: 12,
+          dotHeight: 10,
           dotWidth: 12,
           activeDotColor: Colors.white,
           dotColor: Colors.grey,
