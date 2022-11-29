@@ -5,7 +5,6 @@ import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
 import '../components/star_list_widget.dart';
 import '../constants/error_constants.dart';
-import '../constants/image_constants.dart';
 import '../controller/mylist_controller.dart';
 import '../data/models/marvel_models.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -117,11 +116,11 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         const SizedBox(width: 10),
         Text('8.5', style: AppTextStyle.font15),
-        const SizedBox(width: 30),
+        const SizedBox(width: 20),
         Container(
           alignment: Alignment.topLeft,
-          height: 35,
-          width: 150,
+          height: 36,
+          width: 140,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.black26,
