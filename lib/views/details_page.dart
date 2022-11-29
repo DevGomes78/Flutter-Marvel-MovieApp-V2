@@ -113,7 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
         Container(
           alignment: Alignment.center,
           height: 15,
-          child: Image.asset(ImageConstants.imageAssetEstrela),
+          child: const Icon(Icons.star,color: Colors.amber,size: 18),
         ),
         const SizedBox(width: 10),
         Text('8.5', style: AppTextStyle.font15),
