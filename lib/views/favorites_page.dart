@@ -13,6 +13,7 @@ class FavoritesPage extends StatefulWidget {
 }
 
 class _FavoritesPageState extends State<FavoritesPage> {
+  var str;
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Favorites>(context);
@@ -62,6 +63,10 @@ class _FavoritesPageState extends State<FavoritesPage> {
             itemCount: provider.listFavorites.length,
             itemBuilder: (context, index) {
               var lista = provider.listFavorites[index];
+              str = lista.title.toString();
+              while (str.trim().length > 23) {
+                str = str.toString().substring(0, 23);
+              }
               return Column(
                 children: [
                   SizedBox(
@@ -90,16 +95,16 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  Text(lista.title.toString()),
+                  Text(str.toString()),
                   Row(
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Container(
                           alignment: Alignment.center,
-                          height: 25,
-                          width: 50,
-                          child: Image.asset(ImageConstants.imageAsset5Stars),
+                          height: 30,
+                          width: 60,
+                          child: Image.asset(ImageConstants.imageAsset5Stars,color: Colors.amber),
                         ),
                       ),
                       const SizedBox(width: 10),
