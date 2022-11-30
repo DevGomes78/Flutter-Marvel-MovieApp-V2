@@ -31,7 +31,7 @@ class SearchMovie extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder<List<Data>?>(
-        future: MarvelController().getData(query: query),
+        future: MarvelController().searchData(query: query),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(

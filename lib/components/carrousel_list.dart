@@ -23,7 +23,7 @@ class _CarrouselListState extends State<CarrouselList> {
   @override
   void initState() {
     controller = context.read<MarvelController>();
-    controller.getData(query: '');
+    controller.getData();
     super.initState();
   }
 

@@ -26,7 +26,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   @override
   void initState() {
     controller = context.read<MarvelController>();
-    controller.getData(query: '');
+    controller.getData();
     super.initState();
   }
 

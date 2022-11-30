@@ -23,7 +23,7 @@ class _Top10ListState extends State<Top10List> {
   @override
   void initState() {
     controller = context.read<MarvelController>();
-    controller.getData(query: '');
+    controller.getData();
     super.initState();
   }
 

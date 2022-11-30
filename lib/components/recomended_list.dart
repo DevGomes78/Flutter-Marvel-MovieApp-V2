@@ -22,7 +22,7 @@ class _RecomendedListState extends State<RecomendedList> {
   @override
   void initState() {
     controller = context.read<MarvelController>();
-    controller.getData(query: '');
+    controller.searchData();
     super.initState();
   }
 
