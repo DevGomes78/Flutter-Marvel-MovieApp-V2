@@ -108,7 +108,7 @@ class _Top10ListState extends State<Top10List> {
                       alignment: Alignment.topLeft,
                       height: 20,
                       width: 175,
-                      child: Text(
+                      child: const Text(
                         'Action Adventure',
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
