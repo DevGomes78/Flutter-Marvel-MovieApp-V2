@@ -44,7 +44,7 @@ class _MylistPageState extends State<MylistPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Text(
-        StringConstants.minhaLista,
+        StringConstants.myList,
         style: AppTextStyle.font22,
       ),
     );
