@@ -29,10 +29,12 @@ class _RecomendedListState extends State<RecomendedList> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height / 2.7,
+        height: height / 2.7,
         width: double.infinity,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -48,8 +50,8 @@ class _RecomendedListState extends State<RecomendedList> {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
-                    height: MediaQuery.of(context).size.height / 3.7,
-                    width: MediaQuery.of(context).size.width / 2 - 9,
+                    height: height / 3.7,
+                    width: width / 2 - 9,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(

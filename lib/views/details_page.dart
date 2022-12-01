@@ -21,6 +21,7 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +31,7 @@ class _DetailsPageState extends State<DetailsPage> {
   }
 
   Padding movieDetails() {
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 0,

@@ -28,6 +28,7 @@ class _CarrouselListState extends State<CarrouselList> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Container(
@@ -37,7 +38,7 @@ class _CarrouselListState extends State<CarrouselList> {
             options: CarouselOptions(
               enlargeCenterPage: true,
               initialPage: 6,
-              height: MediaQuery.of(context).size.height / 3.5,
+              height: height / 3.5,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
               reverse: false,
