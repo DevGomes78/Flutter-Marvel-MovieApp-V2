@@ -66,7 +66,7 @@ class _MarvelListPage2State extends State<MarvelListPage2> {
   _recomendedText() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-      child: Text(StringConstants.recomendados, style: AppTextStyle.font22Bold),
+      child: Text(StringConstants.recomended, style: AppTextStyle.font22Bold),
     );
   }
 
