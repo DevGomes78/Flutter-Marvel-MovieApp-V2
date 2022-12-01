@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:marvel/components/text_style_widget.dart';
 import 'package:provider/provider.dart';
+import '../constants/string_constants.dart';
 import '../controller/marvel_controller.dart';
 import '../data/models/marvel_models.dart';
 import '../views/details_page.dart';
@@ -22,7 +23,7 @@ class _RecomendedListState extends State<RecomendedList> {
   @override
   void initState() {
     controller = context.read<MarvelController>();
-    controller.getData(query: '');
+    controller.searchData();
     super.initState();
   }
 
@@ -107,7 +108,7 @@ class _RecomendedListState extends State<RecomendedList> {
                       height: 20,
                       width: 175,
                       child: const Text(
-                        'Action Adventure',
+                        StringConstants.actionAdventure,
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ),
@@ -151,7 +152,6 @@ class _RecomendedListState extends State<RecomendedList> {
                               color: Colors.grey,
                               size: 20,
                             ),
-
                           ],
                         )),
                   ),

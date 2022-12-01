@@ -5,7 +5,6 @@ import 'package:marvel/controller/favourites_controller.dart';
 import 'package:provider/provider.dart';
 import '../components/star_list_widget.dart';
 import '../constants/error_constants.dart';
-import '../constants/image_constants.dart';
 import '../controller/mylist_controller.dart';
 import '../data/models/marvel_models.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,6 +24,7 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black54,
       body: movieDetails(),
     );
   }
@@ -57,7 +57,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Text(
-        StringConstants.atoresPrincipais,
+        StringConstants.actors,
         style: AppTextStyle.font22,
       ),
     );
@@ -113,15 +113,15 @@ class _DetailsPageState extends State<DetailsPage> {
         Container(
           alignment: Alignment.center,
           height: 15,
-          child: Image.asset(ImageConstants.imageAssetEstrela),
+          child: const Icon(Icons.star,color: Colors.amber,size: 18),
         ),
         const SizedBox(width: 10),
         Text('8.5', style: AppTextStyle.font15),
-        const SizedBox(width: 30),
+        const SizedBox(width: 20),
         Container(
           alignment: Alignment.topLeft,
-          height: 35,
-          width: 150,
+          height: 36,
+          width: 140,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.black26,
@@ -133,7 +133,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   onPressed: () {
                     value.myListOnly(widget.data!);
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text(StringConstants.adicionadoAMinhaLista)));
+                        content: Text(StringConstants.addMyList)));
                   },
                   icon: Icon(
                     value.myList.contains(widget.data)
@@ -145,7 +145,7 @@ class _DetailsPageState extends State<DetailsPage> {
               ),
               const SizedBox(width: 5),
               Text(
-                StringConstants.minhaLista,
+                StringConstants.myList,
                 style: AppTextStyle.font14,
               ),
             ],
@@ -245,11 +245,11 @@ class _DetailsPageState extends State<DetailsPage> {
     if (!provider.listFavorites.contains(widget.data)) {
       provider.listFavorites.add(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text(StringConstants.adicionadoaosfavoritos)));
+          content: Text(StringConstants.addMyfavorites)));
     } else {
       provider.listFavorites.remove(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text(StringConstants.removidoDosFavoritos)));
+          const SnackBar(content: Text(StringConstants.removeFavorites)));
     }
   }
 

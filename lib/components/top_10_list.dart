@@ -23,7 +23,7 @@ class _Top10ListState extends State<Top10List> {
   @override
   void initState() {
     controller = context.read<MarvelController>();
-    controller.getData(query: '');
+    controller.getData();
     super.initState();
   }
 
@@ -108,7 +108,7 @@ class _Top10ListState extends State<Top10List> {
                       alignment: Alignment.topLeft,
                       height: 20,
                       width: 175,
-                      child: Text(
+                      child: const Text(
                         'Action Adventure',
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),

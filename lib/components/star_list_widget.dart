@@ -60,7 +60,7 @@ class StarListWidget extends StatelessWidget {
                   backgroundImage: AssetImage('images/Cris hemsworthr.jpg'),
                   radius: 30,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   alignment: Alignment.topCenter,
                   height: 50,
