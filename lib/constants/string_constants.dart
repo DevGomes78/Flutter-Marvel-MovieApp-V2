@@ -9,16 +9,16 @@ class StringConstants{
   static const watchTheTrailer = 'Assista o trailer ';
   static const favorites = 'Favoritos';
   static const Myfavorites = 'Meus Favoritos';
-  static const assistaAgora = 'Assista Agora';
+  static const wachNow = 'Assista Agora';
   static const actionAdventure = 'Action Adventure';
-  static const atoresPrincipais ='Atores principais';
-  static const minhaLista ='Minha lista';
-  static const minhaConta ='Minha conta';
+  static const actors ='Atores principais';
+  static const myList ='Minha lista';
+  static const myCount ='Minha conta';
   static const InfoCard =  'Assine a conta premiun e aproveite os  melhores lançamentos marvel ';
-  static const recomendados ='Recomendados';
-  static const adicionadoAMinhaLista = 'Adicionado a minha lista!';
-  static const adicionadoaosfavoritos ='Adicionado aos Favoritos!';
-  static const removidoDosFavoritos ='removido dos Favoritos!';
+  static const recomended ='Recomendados';
+  static const addMyList = 'Adicionado a minha lista!';
+  static const addMyfavorites ='Adicionado aos Favoritos!';
+  static const removeFavorites ='removido dos Favoritos!';
   static const top10 = 'Top 10';
   static const home= 'Home';
 
