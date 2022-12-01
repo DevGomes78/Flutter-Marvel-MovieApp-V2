@@ -152,7 +152,6 @@ class _RecomendedListState extends State<RecomendedList> {
                               color: Colors.grey,
                               size: 20,
                             ),
-
                           ],
                         )),
                   ),
