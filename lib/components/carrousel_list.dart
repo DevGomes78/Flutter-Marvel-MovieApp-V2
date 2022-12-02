@@ -29,6 +29,10 @@ class _CarrouselListState extends State<CarrouselList> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    return _carrouselList(height);
+  }
+
+  _carrouselList(double height) {
     return Column(
       children: [
         Container(
