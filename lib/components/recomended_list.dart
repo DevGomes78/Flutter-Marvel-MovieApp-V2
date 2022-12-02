@@ -51,7 +51,7 @@ class _RecomendedListState extends State<RecomendedList> {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 5),
                     height: height / 3.7,
-                    width: width / 2 - 9,
+                    width: width / 2 - 10,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
