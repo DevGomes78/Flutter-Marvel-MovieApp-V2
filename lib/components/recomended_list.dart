@@ -31,6 +31,10 @@ class _RecomendedListState extends State<RecomendedList> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    return _recomendedList(height, width);
+  }
+
+  _recomendedList(double height, double width) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: SizedBox(
@@ -115,52 +119,56 @@ class _RecomendedListState extends State<RecomendedList> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                    ),
-                    child: Container(
-                        alignment: Alignment.topLeft,
-                        height: 40,
-                        width: 175,
-                        child: Row(
-                          children: [
-                            if (str == 'Iron Man' ||
-                                str == 'Thor' ||
-                                str == 'Spirder Man' ||
-                                str == 'Iron Man 2')
-                              const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                                size: 20,
-                              ),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 20,
-                            ),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 20,
-                            ),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 20,
-                            ),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.grey,
-                              size: 20,
-                            ),
-                          ],
-                        )),
-                  ),
+                  _starList(),
                 ],
               );
             }),
       ),
+    );
+  }
+
+  _starList() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+      ),
+      child: Container(
+          alignment: Alignment.topLeft,
+          height: 40,
+          width: 175,
+          child: Row(
+            children: [
+              if (str == 'Iron Man' ||
+                  str == 'Thor' ||
+                  str == 'Spirder Man' ||
+                  str == 'Iron Man 2')
+                const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                  size: 20,
+                ),
+              const Icon(
+                Icons.star,
+                color: Colors.amber,
+                size: 20,
+              ),
+              const Icon(
+                Icons.star,
+                color: Colors.amber,
+                size: 20,
+              ),
+              const Icon(
+                Icons.star,
+                color: Colors.amber,
+                size: 20,
+              ),
+              const Icon(
+                Icons.star,
+                color: Colors.grey,
+                size: 20,
+              ),
+            ],
+          )),
     );
   }
 }
