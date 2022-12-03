@@ -21,17 +21,15 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: movieDetails(),
+      body: _detailsMovie(),
     );
   }
 
-  Padding movieDetails() {
-
+  _detailsMovie() {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 0,
@@ -115,7 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
         Container(
           alignment: Alignment.center,
           height: 15,
-          child: const Icon(Icons.star,color: Colors.amber,size: 18),
+          child: const Icon(Icons.star, color: Colors.amber, size: 18),
         ),
         const SizedBox(width: 10),
         Text('8.5', style: AppTextStyle.font15),
@@ -246,8 +244,8 @@ class _DetailsPageState extends State<DetailsPage> {
   _favoritesController(Favorites provider, BuildContext context) {
     if (!provider.listFavorites.contains(widget.data)) {
       provider.listFavorites.add(widget.data!);
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text(StringConstants.addMyfavorites)));
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text(StringConstants.addMyfavorites)));
     } else {
       provider.listFavorites.remove(widget.data!);
       ScaffoldMessenger.of(context).showSnackBar(
