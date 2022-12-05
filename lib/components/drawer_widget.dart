@@ -36,7 +36,7 @@ class DrawerWidget extends StatelessWidget {
           const Divider(color: Colors.white),
           ListTile(
             leading: const Icon(Icons.add),
-            title: const Text(StringConstants.myCount),
+            title: const Text(StringConstants.myList),
             onTap: () {
               Navigator.pushNamed(context, Routes.myListPage);
             },
